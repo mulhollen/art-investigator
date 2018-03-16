@@ -1,0 +1,33 @@
+$primaryfont: 'Didact Gothic', sans-serif;
+$headingfont: 'Space Mono', monospace;
+
+$red: #FF6464;
+$orange: #FFB045;
+$yellow: #FFF145;
+$green: #96FF55;
+$blue: #45BFFF;
+$purple: #F845FF;
+$gray: #707070;
+
+$h1size: 40rem;
+$h2size: 30rem;
+$h3size: 20rem;
+$psize: 2rem;
+
+$border: 5px solid black;
+
+h3 {
+    font-family: $headingfont;
+    size: $h3size;
+}
+
+.light-link {
+    font-family: $primaryfont;
+    size: $h3size;
+    color: $gray;
+}
+
+.round {
+    border: $border;
+    border-radius: 100px;
+}

@@ -2,6 +2,7 @@
     "name": "firebase-Mux-History",
     "version": "0.1.0",
     "devDependencies": {
+        "bootstrap": "^3.3.7",
         "browserify": "^13.1.1",
         "grunt": "^1.0.1",
         "grunt-browserify": "^5.0.0",
@@ -13,7 +14,8 @@
         "jquery": "^3.1.1",
         "jshint": "^2.9.4",
         "jshint-stylish": "^2.2.1",
-        "matchdep": "^1.0.1"
+        "matchdep": "^1.0.1",
+        "popper": "^1.0.1"
     },
     "dependencies": {
         "firebase": "^3.6.9",

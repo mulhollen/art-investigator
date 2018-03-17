@@ -9,25 +9,46 @@ $blue: #45BFFF;
 $purple: #F845FF;
 $gray: #707070;
 
-$h1size: 40rem;
-$h2size: 30rem;
-$h3size: 20rem;
-$psize: 2rem;
+$h1size: 60em;
+$h2size: 30em;
+$h3size: 30em;
+$psize: 2em;
 
 $border: 5px solid black;
 
+h1 {
+    font-family: $headingfont;
+}
+
 h3 {
     font-family: $headingfont;
-    size: $h3size;
 }
 
 .light-link {
     font-family: $primaryfont;
-    size: $h3size;
-    color: $gray;
+    color: $gray !important; 
+}
+
+.circle-link {
+    width: 160px;
+    height: 160px;
+    font-family: $primaryfont;
+}
+
+
+.green {
+    background-color: $green;
+}
+
+.yellow {
+    background-color: $yellow;
+}
+
+.red {
+    background-color: $red;    
 }
 
 .round {
     border: $border;
-    border-radius: 100px;
+    border-radius: 50%;
 }

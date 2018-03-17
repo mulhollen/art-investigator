@@ -15,6 +15,7 @@ $h3size: 30em;
 $psize: 2em;
 
 $border: 5px solid black;
+$border-medium: 3px solid black;
 
 h1 {
     font-family: $headingfont;
@@ -22,6 +23,10 @@ h1 {
 
 h3 {
     font-family: $headingfont;
+}
+
+.dark-link{
+    font-family: $primaryfont;
 }
 
 .light-link {
@@ -51,4 +56,12 @@ h3 {
 .round {
     border: $border;
     border-radius: 50%;
+}
+
+.border-medium-bottom {
+    border-bottom: $border-medium;
+}
+
+.border-medium-top {
+    border-top: $border-medium;
 }

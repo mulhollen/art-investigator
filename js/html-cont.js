@@ -29,3 +29,25 @@ let homePage = `<div>
                         <a class="light-link h4 mt-auto p-2" id="help">help!</a>
                     </div>
                 </div>`;
+
+let editProfilePage = `<div>
+                            <div class="px-3 my-5 d-flex justify-content-between border-medium-bottom">
+                                <a class="dark-link h3" id="edit-cancel">cancel</a>
+                                <a class="dark-link h3" id="edit-save">save</a>
+                            </div>
+                            <div class="text-center">
+                                <img class="round mt-5 center-block" id="change-avatar" src="img/avatar/gator.jpg">
+                                <br>
+                                <a class="dark-link h3 mt-3" id="change-avatar">change avatar</a>
+                                <div class="mt-5 mx-5 border-medium-top">
+                                    <div class="d-flex flex-row justify-content-center py-4 border-medium-bottom">
+                                        <span class="h3">username:</span>
+                                        <input type="text" class="form-control ml-3" id="username">
+                                    </div>
+                                    <div class="d-flex flex-row justify-content-center py-4 border-medium-bottom">
+                                        <span class="h3">email:</span>
+                                        <input type="text" class="form-control ml-3" id="email">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;

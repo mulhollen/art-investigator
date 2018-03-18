@@ -21,8 +21,28 @@ h1 {
     font-family: $headingfont;
 }
 
+h2 {
+    font-family: $primaryfont;
+}
+
 h3 {
     font-family: $headingfont;
+}
+
+h4 {
+    font-family: $primaryfont;
+}
+
+p {
+    font-family: $primaryfont;
+}
+
+a {
+    color: white;
+}
+
+a:active {
+    color: white;
 }
 
 .dark-link{
@@ -39,7 +59,17 @@ h3 {
     height: 160px;
     font-family: $primaryfont;
 }
+.circle-button {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+}
 
+.hole {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+}
 
 .green {
     background-color: $green;
@@ -53,6 +83,14 @@ h3 {
     background-color: $red;    
 }
 
+.background-black {
+    background-color: black;
+}
+
+.white-text {
+    color: white;
+}
+
 .round {
     border: $border;
     border-radius: 50%;
@@ -64,4 +102,16 @@ h3 {
 
 .border-medium-top {
     border-top: $border-medium;
+}
+
+.square-border {
+    border: 10px solid $yellow;
+}
+
+.tall {
+    height: 50vh;
+}
+
+.negative-left {
+    margin-left: -10px;
 }

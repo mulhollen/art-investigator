@@ -194,7 +194,7 @@ let ispyMain = `<div class="${color} pb-5 full-height">
                     <div class="m-5 p-3 square-border-black rounded background-white">
                         <h1 class="p-3 display-3 text-center">${questionText}</h1>
                         <div class="d-flex justify-content-around mt-4">
-                            <button id="${hintId}"><i class="fas fa-search fa-4x"></i></button>
+                            <button class="visible" id="${hintId}"><i class="fas fa-search fa-4x"></i></button>
                             <button id="${cameraId}"><i class="fas fa-camera fa-4x"></i></button>
                         </div>
                     </div>

@@ -2,6 +2,7 @@
 
 // for hompage var
 let username;
+let scaryWord;
 
 let signInPage = `<div class="sign-in column text-center align-middle align-middle h-100">    
                         <h3>Sign in with:</h3>    
@@ -94,7 +95,7 @@ let scaryWordPage = `<div class="background-black pb-5">
                         </div>
                         <div class="canvas d-flex justify-content-center">
                             <div id="canvas" class="align-self-center">
-                                <h1 class="display-4 white-text">${scary - word}</h1>
+                                <h1 class="display-4 white-text">${scaryWord}</h1>
                             </div>
                         </div>
                         <div class="background-black">
@@ -108,3 +109,31 @@ let scaryWordPage = `<div class="background-black pb-5">
 
                         </div>
                     </div>`;
+
+let wordCloud = `<div>
+                    <div class="mx-4 pt-4 d-flex justify-content-between">
+                        <button id="scary-word-back" type="button" class="circle-button round">
+                            <i class="fas fa-angle-left fa-2x"></i>
+                        </button>
+                        <button id="home" type="button" class="circle-button round">
+                            <i class="fas fa-home fa-lg"></i>
+                        </button>
+                    </div>
+                    <div class="canvas">
+                        <div id="word-cloud" class="align-self-center">
+                            
+                        </div>
+                    </div>
+                    <div class="background-black">
+                        <div class="yellow p-5">
+                            <h2>Here are the fears that everyone shared. Can you see yours?</h2>
+                            <div class="mx-3 d-flex justify-content-end">
+                                <button id="next-scary-word" type="button" class="circle-button round">
+                                    <i class="fas fa-angle-right fa-2x"></i>
+                                </button>
+                            </div>
+                
+                        </div>
+                </div>`;
+
+module.exports = { signInPage, homePage, editProfilePage, vulnerablePage, scaryWordPage, wordCloud};

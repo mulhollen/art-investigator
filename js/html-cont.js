@@ -8,6 +8,8 @@ let questionBack;
 let questionText;
 let hintId;
 let cameraId;
+let qImage;
+let userUpload;
 let questionNext;
 
 let signInPage = `<div class="sign-in column text-center align-middle align-middle h-100">    
@@ -195,6 +197,10 @@ let ispyMain = `<div class="${color} pb-5 full-height">
                             <button id="${hintId}"><i class="fas fa-search fa-4x"></i></button>
                             <button id="${cameraId}"><i class="fas fa-camera fa-4x"></i></button>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-around mt-4">
+                        <img class="invisible q-img square-border-black" src="${qImage}">
+                        <img class="invisible q-img square-border-black" src="${userUpload}">
                     </div>
                     <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end">
                         <button id="${questionNext}" type="button" class="circle-button round">

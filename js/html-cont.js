@@ -51,3 +51,34 @@ let editProfilePage = `<div>
                                 </div>
                             </div>
                         </div>`;
+
+let vulnerablePage = ` <div class="background-black pb-5">
+                            <div class="mx-4 pt-4 d-flex justify-content-between">
+                                <button id="vulnerable-back" type="button" class="circle-button round">
+                                    <i class="fas fa-angle-left fa-2x"></i>
+                                </button>
+                                <button id="home" type="button" class="circle-button round">
+                                    <i class="fas fa-home fa-lg"></i>
+                                </button>
+                            </div>
+                            <div class="m-5 p-4 square-border rounded">
+                                <h2 class="display-4 white-text">Do you know what it means to feel</h2>
+                                <h1 class="display-3 white-text"><u>vulnerable</u>?</h1>
+                            </div>
+                            <div class="tall d-flex align-items-end justify-content-center">
+                                <a href="#page-2"><i class="fas fa-angle-down fa-5x"></i></a>
+                            </div>
+                            <div id="page-2" class="mt-5 mr-0 ml-5 pl-5 pr-4 yellow rounded-left">
+                                <h2>The artist, Nick Cave, was feeling alone. He felt like people didn’t like him or care about him. He was scared. He felt</h2>
+                                <h1>vulnerable.</h1>
+                            </div>
+                            <div class="mr-5 mt-5 mb-5 p-3 square-border rounded negative-left">
+                                <h2 class="p-3 white-text">Do you know what it’s like to be scared or feel alone? scared or feel alone?</h2>
+                                <h4 class="p-3 white-text text-center">type one of your fears in the hole below and press enter.</h4>
+                            </div>
+                            <div class="d-flex justify-content-center center-block">
+                                <div class="hole yellow d-flex align-items-center">
+                                    <input type="text" class="form-control m-3 background-black p-3 d-flex align-items-center" id="hole">
+                                </div>
+                            </div>
+                        </div>`;

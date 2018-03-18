@@ -9,11 +9,6 @@ $blue: #45BFFF;
 $purple: #F845FF;
 $gray: #707070;
 
-$h1size: 60em;
-$h2size: 30em;
-$h3size: 30em;
-$psize: 2em;
-
 $border: 5px solid black;
 $border-medium: 3px solid black;
 
@@ -87,6 +82,10 @@ a:active {
     background-color: black;
 }
 
+.background-white {
+    background-color: white;
+}
+
 .white-text {
     color: white;
 }
@@ -108,8 +107,16 @@ a:active {
     border: 10px solid $yellow;
 }
 
+.square-border-black {
+    border: 10px solid black;
+}
+
 .tall {
     height: 50vh;
+}
+
+.full-height {
+    height: 100vh;
 }
 
 .negative-left {

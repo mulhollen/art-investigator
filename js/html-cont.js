@@ -82,3 +82,29 @@ let vulnerablePage = ` <div class="background-black pb-5">
                                 </div>
                             </div>
                         </div>`;
+
+let scaryWordPage = `<div class="background-black pb-5">
+                        <div class="mx-4 pt-4 d-flex justify-content-between">
+                            <button id="scary-word-back" type="button" class="circle-button round">
+                                <i class="fas fa-angle-left fa-2x"></i>
+                            </button>
+                            <button id="home" type="button" class="circle-button round">
+                                <i class="fas fa-home fa-lg"></i>
+                            </button>
+                        </div>
+                        <div class="canvas d-flex justify-content-center">
+                            <div id="canvas" class="align-self-center">
+                                <h1 class="display-4 white-text">${scary - word}</h1>
+                            </div>
+                        </div>
+                        <div class="background-black">
+                            <div class="green mx-5 p-4">
+                                <h2>That’s really scary! Did you know everyone is scared of something? Let’s take a look…</h2>
+                                <div class=" green mx-3 d-flex justify-content-end">
+                                    <button id="next-scary-word" type="button" class="circle-button round">
+                                        <i class="fas fa-angle-right fa-2x"></i>
+                                    </button>
+                            </div>
+
+                        </div>
+                    </div>`;

@@ -110,7 +110,7 @@ let scaryWordPage = `<div class="background-black pb-5">
                         </div>
                     </div>`;
 
-let wordCloud = `<div>
+let wordCloudPage = `<div>
                     <div class="mx-4 pt-4 d-flex justify-content-between">
                         <button id="scary-word-back" type="button" class="circle-button round">
                             <i class="fas fa-angle-left fa-2x"></i>
@@ -136,4 +136,24 @@ let wordCloud = `<div>
                         </div>
                 </div>`;
 
-module.exports = { signInPage, homePage, editProfilePage, vulnerablePage, scaryWordPage, wordCloud};
+let armorPage = `<div class="background-black pb-5">
+                    <div class="mx-4 pt-4 d-flex justify-content-between">
+                        <button id="armor-back" type="button" class="circle-button round">
+                            <i class="fas fa-angle-left fa-2x"></i>
+                        </button>
+                        <button id="home" type="button" class="circle-button round">
+                            <i class="fas fa-home fa-lg"></i>
+                        </button>
+                    </div>
+                    <div class="mr-5 mt-5 mb-5 p-3 square-border rounded negative-left">
+                        <h2 class="p-3 white-text">Nick’s fear was being treated differently from the people around him becuase he didn’t look like them, talk like them or
+                        grow up like them. To make himself feel better, Nick started making armor but not the kind knights or soldiers wear.</h2> 
+                        <h2 class="p-3 white-text">Nick made his armour with what was around him, things that were discarded, things that made him feel strong.</h2>
+                        <h1 class="p-3 display-4 white-text">do you have armor that makes you feel strong?</h1>
+                    </div>
+                    <div class="mt-5 mr-0 ml-5 pl-5 pr-4 yellow rounded-left">
+                        <h2 class="p-5">let's go see the exhibit!</h2>
+                    </div>
+                </div>`;
+
+module.exports = { signInPage, homePage, editProfilePage, vulnerablePage, scaryWordPage, wordCloudPage, armorPage };

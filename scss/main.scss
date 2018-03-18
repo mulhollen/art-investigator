@@ -105,10 +105,12 @@ a:active {
 
 .square-border {
     border: 10px solid $yellow;
+    border-radius: 10px;    
 }
 
 .square-border-black {
     border: 10px solid black;
+    border-radius: 10px;
 }
 
 .tall {
@@ -125,4 +127,9 @@ a:active {
 
 .canvas {
     height: 70vh;
+}
+
+.q-img {
+    width: 300px;
+    height: 300px;
 }

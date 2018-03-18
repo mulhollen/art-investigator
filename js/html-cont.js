@@ -156,4 +156,22 @@ let armorPage = `<div class="background-black pb-5">
                     </div>
                 </div>`;
 
-module.exports = { signInPage, homePage, editProfilePage, vulnerablePage, scaryWordPage, wordCloudPage, armorPage };
+let ispyInstructionsPage = `<div class="yellow pb-5 full-height">
+                                <div class="mx-4 pt-4 d-flex justify-content-between">
+                                    <button id="ispy-instructions-back" type="button" class="circle-button round">
+                                        <i class="fas fa-angle-left fa-2x"></i>
+                                    </button>
+                                    <button id="home" type="button" class="circle-button round">
+                                        <i class="fas fa-home fa-lg"></i>
+                                    </button>
+                                </div>
+                                <div class="m-5 p-3 square-border-black rounded negative-left">
+                                    <h1 class="p-3 display-3 text-center">Can you find?</h1>
+                                    <h2 class="p-3">Instrustions will be here. This will tell the user how to play hide and seak. Instrustions will be here. This will tell the user how to play hide and seak. Instrustions will be here. This will tell the user how to play hide and seak.</h2>
+                                </div>
+                                <div class="d-flex justify-content-center m-5">
+                                    <button id="ispy-letsgo" class="square-border-black background-white p-3"><h1>let's go!</h1></button>
+                                </div>
+                            </div>`;
+
+module.exports = { signInPage, homePage, editProfilePage, vulnerablePage, scaryWordPage, wordCloudPage, armorPage, ispyInstructionsPage };

@@ -11,6 +11,7 @@ let cameraId;
 let qImage;
 let userUpload;
 let questionNext;
+let galleryUpload;
 
 let signInPage = `<div class="sign-in column text-center align-middle align-middle h-100">    
                         <h3>Sign in with:</h3>    
@@ -209,4 +210,43 @@ let ispyMain = `<div class="${color} pb-5 full-height">
                     </div>
                 </div>`;
 
-module.exports = { signInPage, homePage, editProfilePage, vulnerablePage, scaryWordPage, wordCloudPage, armorPage, ispyInstructionsPage, ispyMain };
+let ispyGallery = `<div class="blue pb-5 full-height">
+                        <div class="mx-4 pt-4 d-flex justify-content-between">
+                            <button id="ispy-instructions-back" type="button" class="circle-button round">
+                                <i class="fas fa-angle-left fa-2x"></i>
+                            </button>
+                            <button id="home" type="button" class="circle-button round">
+                                <i class="fas fa-home fa-lg"></i>
+                            </button>
+                        </div>
+                        <div class="m-5 p-3 square-border-black rounded background-white">
+                            <h1 class="p-3 display-3 text-center">A Donald Duck Figure?</h1>
+                            <div class="d-flex justify-content-around mt-4">
+                                <button id="${cameraId}"><i class="fas fa-camera fa-4x"></i></button>
+                            </div>
+                        </div>
+                        <div id="gallery" class="blue d-flex justify-content-around flex-wrap mt-4 pb-5">
+                            
+                        </div>
+                        <div class="blue mx-3 mb-3 fixed-bottom d-flex justify-content-end flex-wrap">
+                            <button id="next-scary-word" type="button" class="circle-button round">
+                                <i class="fas fa-angle-right fa-2x"></i>
+                            </button>
+                        </div>
+                    </div>`;
+
+
+let ispyGalleryUpload = `<img class="g-img square-border-black m-4" src="${galleryUpload}">`;
+
+module.exports = { 
+                signInPage, 
+                homePage, 
+                editProfilePage, 
+                vulnerablePage, 
+                scaryWordPage, 
+                wordCloudPage, 
+                armorPage, 
+                ispyInstructionsPage, 
+                ispyMain,
+                ispyGallery,
+                ispyGalleryUpload };

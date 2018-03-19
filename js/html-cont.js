@@ -15,8 +15,8 @@ let galleryUpload;
 
 let signInPage = `<div class="sign-in full-height text-center d-flex flex-column justify-content-center">    
                         <h3>Sign in with:</h3>    
-                        <button id="login" class="d-inline-block">
-                            <img class="round" src="img/sign-in/google-logo.png">
+                        <button class="d-inline-block">
+                            <img id="login" class="round" src="img/sign-in/google-logo.png">
                         </button>
                     </div>`;
 

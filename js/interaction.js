@@ -34,6 +34,9 @@ document.querySelector('#main').addEventListener('click', (event) => {
             printDiv.empty('');
             printJS.appendMain(html.signInPage);
         });
+    } else if (event.target.id === "edit-profile") {
+        printDiv.empty('');
+        
     }
 });
 

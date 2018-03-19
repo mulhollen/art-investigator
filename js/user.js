@@ -8,7 +8,9 @@ let defaultCode = 37027;
 
 let currentUser = {
     uid: null,
-    fbID: null
+    fbID: null,
+    email: null,
+    username: null
 };
 
 // call logout when page loads to avoid currentUser.uid
@@ -43,6 +45,8 @@ function setUserVars(obj) {
     return new Promise((resolve, reject) => {
         currentUser.fbID = obj.fbID ? obj.fbID : currentUser.fbID;
         currentUser.uid = obj.uid ? obj.uid : currentUser.uid;
+        currentUser.email = obj.email ? obj.email : currentUser.email;
+        currentUser.username = obj.username ? obj.username : currentUser.displayName;
         resolve(currentUser);
     });
 }

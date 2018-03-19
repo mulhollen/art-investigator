@@ -36,7 +36,9 @@ document.querySelector('#main').addEventListener('click', (event) => {
         });
     } else if (event.target.id === "edit-profile") {
         printDiv.empty('');
-        
+        let userObj = user.getUserObj();
+        console.log("user obj edit prof", userObj);
+        html.editProfilePage();
     }
 });
 

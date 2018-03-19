@@ -19,6 +19,8 @@ firebase.auth().onAuthStateChanged((user) => {
     console.log("onAuthStateChanged", user);
     if (user) {
         currentUser.uid = user.uid;
+        currentUser.email = user.email;
+        currentUser.username = user.displayName;
         console.log("current user Logged in?", currentUser);
     } else {
         currentUser.uid = null;
@@ -82,8 +84,6 @@ function checkUserFB(uid) {
                 data[0].fbID = key[0];
                 setUserVars(data[0]);
             }
-            //only show once a user is logged in
-            $("#zip-container").removeClass("is-hidden");
         });
 }
 

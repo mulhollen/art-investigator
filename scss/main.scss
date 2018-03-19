@@ -66,16 +66,28 @@ a:active {
     border-radius: 50%;
 }
 
-.green {
-    background-color: $green;
+.red {
+    background-color: $red;    
+}
+
+.orange {
+    background-color: $orange;
 }
 
 .yellow {
     background-color: $yellow;
 }
 
-.red {
-    background-color: $red;    
+.green {
+    background-color: $green;
+}
+
+.blue {
+    background-color: $blue;
+}
+
+.purple {
+    background-color: $purple;
 }
 
 .background-black {
@@ -105,10 +117,12 @@ a:active {
 
 .square-border {
     border: 10px solid $yellow;
+    border-radius: 10px;    
 }
 
 .square-border-black {
     border: 10px solid black;
+    border-radius: 10px;
 }
 
 .tall {
@@ -125,4 +139,14 @@ a:active {
 
 .canvas {
     height: 70vh;
+}
+
+.q-img {
+    width: 300px;
+    height: 300px;
+}
+
+.g-img {
+    width: 200px;
+    height: 200px;
 }

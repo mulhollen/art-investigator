@@ -5,8 +5,10 @@ let $ = require('jquery');
 let printDiv = $('#main');
 
 
-function print(html) {
+function appendMain(html) {
+    printDiv.empty('');
     printDiv.append(html);
 }
 
-module.exports = { print };
+
+module.exports = { appendMain };

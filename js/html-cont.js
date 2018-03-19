@@ -210,9 +210,9 @@ let ispyMain = `<div class="${color} pb-5 full-height">
                     </div>
                 </div>`;
 
-let ispyGallery = `<div class="blue pb-5 full-height">
+let ispyGallery = `<div class="${color} pb-5 full-height">
                         <div class="mx-4 pt-4 d-flex justify-content-between">
-                            <button id="ispy-instructions-back" type="button" class="circle-button round">
+                            <button id="${questionBack}" type="button" class="circle-button round">
                                 <i class="fas fa-angle-left fa-2x"></i>
                             </button>
                             <button id="home" type="button" class="circle-button round">
@@ -220,7 +220,7 @@ let ispyGallery = `<div class="blue pb-5 full-height">
                             </button>
                         </div>
                         <div class="m-5 p-3 square-border-black rounded background-white">
-                            <h1 class="p-3 display-3 text-center">A Donald Duck Figure?</h1>
+                            <h1 class="p-3 display-3 text-center">${questionText}</h1>
                             <div class="d-flex justify-content-around mt-4">
                                 <button id="${cameraId}"><i class="fas fa-camera fa-4x"></i></button>
                             </div>
@@ -229,7 +229,7 @@ let ispyGallery = `<div class="blue pb-5 full-height">
                             
                         </div>
                         <div class="blue mx-3 mb-3 fixed-bottom d-flex justify-content-end flex-wrap">
-                            <button id="next-scary-word" type="button" class="circle-button round">
+                            <button id="${questionNext}" type="button" class="circle-button round">
                                 <i class="fas fa-angle-right fa-2x"></i>
                             </button>
                         </div>
@@ -249,4 +249,5 @@ module.exports = {
                 ispyInstructionsPage, 
                 ispyMain,
                 ispyGallery,
-                ispyGalleryUpload };
+                ispyGalleryUpload 
+                };

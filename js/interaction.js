@@ -82,6 +82,21 @@ document.querySelector('#main').addEventListener('click', (event) => {
     } else if (event.target.id === "next-word-cloud") {
         printDiv.empty('');
         printJS.appendMain(html.armorPage);
+    } else if (event.target.id === "armor-back") {
+        printDiv.empty('');
+        html.wordCloudPage();
+    } else if (event.target.id === "during") {
+        printDiv.empty('');
+        printJS.appendMain(html.ispyInstructionsPage);
+    } else if (event.target.id === "ispy-instructions-back") {
+        printDiv.empty('');
+        printJS.appendMain(html.armorPage);
+    } else if (event.target.id === "ispy-letsgo") {
+        printDiv.empty('');
+        html.ispyMain();
+    } else if (event.target.id === "questionBack" ){
+        printDiv.empty('');
+        printJS.appendMain(html.ispyInstructionsPage);
     }
 });
  

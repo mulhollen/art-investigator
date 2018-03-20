@@ -94,7 +94,7 @@ let vulnerablePage = ` <div class="background-black pb-5">
                                 <h1>vulnerable.</h1>
                             </div>
                             <div class="mr-5 mt-5 mb-5 p-3 square-border rounded negative-left">
-                                <h2 class="p-3 white-text">Do you know what it’s like to be scared or feel alone? scared or feel alone?</h2>
+                                <h2 class="p-3 white-text">Do you know what it’s like to be scared or feel alone?</h2>
                                 <h4 class="p-3 white-text text-center">type one of your fears in the hole below and press enter.</h4>
                             </div>
                             <div class="d-flex justify-content-center center-block">
@@ -177,13 +177,18 @@ let armorPage = `<div class="background-black pb-5">
                         <h1 class="p-3 display-4 white-text">do you have armor that makes you feel strong?</h1>
                     </div>
                     <div class="mt-5 mr-0 ml-5 pl-5 pr-4 yellow rounded-left">
-                        <a><h2 class="p-5">let's go see the exhibit!</h2></a>
+                        <h2 class="px-5 pt-3">let's go see the exhibit!</h2>
+                        <div class="mx-3 pb-3 d-flex justify-content-end">
+                            <a id="during" class="circle-button round d-flex justify-content-center align-items-center">
+                                <i class="fas fa-angle-right fa-2x"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>`;
 
 let ispyInstructionsPage = `<div class="yellow pb-5 full-height">
                                 <div class="mx-4 pt-4 d-flex justify-content-between">
-                                    <a id="ispy-instructions-back" class="circle-button round d-flex justify-content-center align-items-center">
+                                    <a id="ispy-instructions-back" class="invisible circle-button round d-flex justify-content-center align-items-center">
                                         <i class="fas fa-angle-left fa-2x"></i>
                                     </a>
                                     <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
@@ -199,32 +204,35 @@ let ispyInstructionsPage = `<div class="yellow pb-5 full-height">
                                 </div>
                             </div>`;
 
-let ispyMain = `<div class="${color} pb-5 full-height">
-                    <div class="mx-4 pt-4 d-flex justify-content-between">
-                        <a id="${questionBack}" class="circle-button round d-flex justify-content-center align-items-center">
-                            <i class="fas fa-angle-left fa-2x"></i>
-                        </a>
-                        <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
-                            <i class="fas fa-home fa-lg"></i>
-                        </a>
-                    </div>
-                    <div class="m-5 p-3 square-border-black rounded background-white">
-                        <h1 class="p-3 display-3 text-center">${questionText}</h1>
-                        <div class="d-flex justify-content-around mt-4">
-                            <button class="visible" id="${hintId}"><i class="fas fa-search fa-4x"></i></button>
-                            <button id="${cameraId}"><i class="fas fa-camera fa-4x"></i></button>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-around mt-4">
-                        <img class="invisible q-img square-border-black" src="${qImage}">
-                        <img class="invisible q-img square-border-black" src="${userUpload}">
-                    </div>
-                    <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end">
-                        <a id="${questionNext}" class="circle-button round d-flex justify-content-center align-items-center">
-                            <i class="fas fa-angle-right fa-2x"></i>
-                        </a>
-                    </div>
-                </div>`;
+function ispyMain(color, questionText, hintID, qImage, questionNext){
+    printDiv.append(
+        `<div class="${color} pb-5 full-height">
+            <div class="mx-4 pt-4 d-flex justify-content-between">
+                <a id="questionBack" class="circle-button round d-flex justify-content-center align-items-center">
+                    <i class="fas fa-angle-left fa-2x"></i>
+                </a>
+                <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
+                    <i class="fas fa-home fa-lg"></i>
+                </a>
+            </div>
+            <div class="m-5 p-3 square-border-black rounded background-white">
+                <h1 class="p-3 display-3 text-center">${questionText}</h1>
+                <div class="d-flex justify-content-around mt-4">
+                    <button class="visible" id="${hintId}"><i class="fas fa-search fa-4x"></i></button>
+                    <button id="cameraId"><i class="fas fa-camera fa-4x"></i></button>
+                </div>
+            </div>
+            <div class="d-flex justify-content-around mt-4">
+                <img class="invisible q-img square-border-black" src="${qImage}">
+                <img class="invisible q-img square-border-black" src="${userUpload}">
+            </div>
+            <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end">
+                <a id="${questionNext}" class="circle-button round d-flex justify-content-center align-items-center">
+                    <i class="fas fa-angle-right fa-2x"></i>
+                </a>
+            </div>
+        </div>`);
+    }
 
 let ispyGallery = `<div class="${color} pb-5 full-height">
                         <div class="mx-4 pt-4 d-flex justify-content-between">

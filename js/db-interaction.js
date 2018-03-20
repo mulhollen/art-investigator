@@ -16,7 +16,7 @@ let $ = require('jquery'),
 
 function getFBDetails(user) {
     return $.ajax({
-        url: `${firebase.getFBsettings().databaseURL}//user.json?orderBy="uid"&equalTo="${user}"`
+        url: `${firebase.getFBsettings().databaseURL}/user.json?orderBy="uid"&equalTo="${user}"`
     }).done((resolve) => {
         return resolve;
     }).fail((error) => {
@@ -31,14 +31,23 @@ function addUserFB(userObj) {
         data: JSON.stringify(userObj),
         dataType: 'json'
     }).done((fbID) => {
-        return fbID;
+      return fbID;
+    });
+}
+
+function addFBkey(obj, key){
+    return $.ajax({
+        url: `${firebase.getFBsettings().databaseURL}/user/${key}.json`,
+        type: 'PATCH',
+        data: JSON.stringify(obj),
+        dataType: 'json'
     });
 }
 
 function updateUserFB(userObj) {
     return $.ajax({
         url: `${firebase.getFBsettings().databaseURL}/user/${userObj.fbID}.json`,
-        type: 'PUT',
+        type: 'PATCH',
         data: JSON.stringify(userObj),
         dataType: 'json'
     }).done((userID) => {
@@ -81,5 +90,6 @@ module.exports = {
     createUser,
     loginUser,
     logInGoogle,
-    logOut
+    logOut,
+    addFBkey
 };

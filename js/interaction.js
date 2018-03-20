@@ -23,11 +23,16 @@ document.querySelector('#main').addEventListener('click', (event) => {
         console.log("login", event.target.id);
         db.logInGoogle()
         .then((result) => {
-            console.log("result from login", result.user.uid);
+            console.log("result from login", result.user);
             user.setUser(result.user.uid);
-            user.checkUserFB(result.user.uid);
+            user.checkUserFB(result.user);
             printDiv.empty('');
-            html.homePage(result.user.displayName);  
+
+            db.getFBDetails(result.user.uid).then((user) => {
+                let keys = Object.keys(user);
+                let userKey = keys.shift();
+                html.homePage(user[userKey].displayName);  
+            });
         });
     } else if (event.target.id === "logout"){
         db.logOut()
@@ -44,10 +49,19 @@ document.querySelector('#main').addEventListener('click', (event) => {
         let userObj = user.getUserObj();
         html.homePage(userObj.displayName);
     } else if (event.target.id === "edit-save"){
+        var inputOne = document.getElementById("username").value;
+        var inputTwo = document.getElementById("email").value;
+
+
+        let currentUser = user.getUserObj();
+        currentUser.displayName = inputOne;
+        currentUser.email = inputTwo;
+        currentUser.fbID = currentUser.fbID ? currentUser.fbID : currentUser.fbID.name;
+    
+        db.updateUserFB(currentUser);
+        
         printDiv.empty('');
-        // this is where I need to get displayName to FB and editable. 
-        let userObj = user.getUserObj();
-        html.homePage(userObj.displayName);
+        html.homePage(inputOne);
     } else if (event.target.id === "before") {
         printDiv.empty('');
         printJS.appendMain(html.vulnerablePage);
@@ -64,10 +78,19 @@ document.querySelector('#main').addEventListener('click', (event) => {
             var key = e.which || e.keyCode;
             if (key === 13) { 
                 input = document.getElementById("hole").value;
-                console.log("enter press", input);
+                
+                let currentUser = user.getUserObj();
+                let scaryObj = {scaryword: input};
+                
                 printDiv.empty('');
-                // scary word needs to go to FB
-                html.scaryWordPage(input);
+                
+                db.addFBkey(scaryObj, currentUser.fbID).then( () => {
+                    db.getFBDetails(currentUser.uid).then((user) => {
+                        let keys = Object.keys(user);
+                        let userKey = keys.shift();
+                        html.scaryWordPage(user[userKey].scaryword);
+                    });
+                });
             }
         });
     } else if (event.target.id === "scary-word-back") {
@@ -97,6 +120,10 @@ document.querySelector('#main').addEventListener('click', (event) => {
     } else if (event.target.id === "questionBack" ){
         printDiv.empty('');
         printJS.appendMain(html.ispyInstructionsPage);
+    } else if (event.target.id === "ispy-letsgo") {
+        printDiv.empty('');
+        // this guy needs params
+        html.ispyMain(); 
     }
 });
  

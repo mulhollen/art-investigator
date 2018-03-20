@@ -78,10 +78,19 @@ document.querySelector('#main').addEventListener('click', (event) => {
             var key = e.which || e.keyCode;
             if (key === 13) { 
                 input = document.getElementById("hole").value;
-                console.log("enter press", input);
+                
+                let currentUser = user.getUserObj();
+                let scaryObj = {scaryword: input};
+                
                 printDiv.empty('');
-                // scary word needs to go to FB
-                html.scaryWordPage(input);
+                
+                db.addFBkey(scaryObj, currentUser.fbID).then( () => {
+                    db.getFBDetails(currentUser.uid).then((user) => {
+                        let keys = Object.keys(user);
+                        let userKey = keys.shift();
+                        html.scaryWordPage(user[userKey].scaryword);
+                    });
+                });
             }
         });
     } else if (event.target.id === "scary-word-back") {

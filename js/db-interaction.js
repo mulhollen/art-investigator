@@ -38,7 +38,7 @@ function addUserFB(userObj) {
 function addFBkey(obj, key){
     return $.ajax({
         url: `${firebase.getFBsettings().databaseURL}/user/${key}.json`,
-        type: 'PUT',
+        type: 'PATCH',
         data: JSON.stringify(obj),
         dataType: 'json'
     });
@@ -47,7 +47,7 @@ function addFBkey(obj, key){
 function updateUserFB(userObj) {
     return $.ajax({
         url: `${firebase.getFBsettings().databaseURL}/user/${userObj.fbID}.json`,
-        type: 'PUT',
+        type: 'PATCH',
         data: JSON.stringify(userObj),
         dataType: 'json'
     }).done((userID) => {

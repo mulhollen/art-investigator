@@ -31,6 +31,10 @@ function getUser() {
     return currentUser.uid;
 }
 
+function getUserFBID() {
+    return currentUser.fbID;
+}
+
 function setUser(val) {
     currentUser.uid = val;
 }
@@ -77,18 +81,16 @@ function checkUserFB(userObject) {
                         currentUser.fbID = result;
                         let tmpObj = {
                             fbID: result.name,
-                            uid: currentUser.uid,
-                            email: currentUser.email,
-                            displayName: currentUser.displayName
                         };
                         console.log("temp", tmpObj);
                         db.addFBkey(tmpObj, result.name);
                     });
             } else {
-                console.log("user: already a user", data);
+                console.log("user: already a user", data[0]);
                 var key = Object.keys(result);
-                data[0].fbID = key[0];
+                // data[0].fbID = key[0];
                 setUserVars(data[0]);
+                console.log("current user fbid", currentUser.fbID);
 
             }
         });

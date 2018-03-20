@@ -2,7 +2,8 @@
 
 let $ = require('jquery'),
     db = require("./db-interaction"),
-    user = require("./user");
+    user = require("./user"),
+    interactionJS = require("./interaction");
 
 
 

@@ -8,7 +8,9 @@ let defaultCode = 37027;
 
 let currentUser = {
     uid: null,
-    fbID: null
+    fbID: null,
+    email: null,
+    displayName: null
 };
 
 // call logout when page loads to avoid currentUser.uid
@@ -16,7 +18,10 @@ let currentUser = {
 firebase.auth().onAuthStateChanged((user) => {
     console.log("onAuthStateChanged", user);
     if (user) {
+        console.log("current user.displayname", user.displayName);
         currentUser.uid = user.uid;
+        currentUser.displayName = user.displayName;
+        currentUser.email = user.email;
         console.log("current user Logged in?", currentUser);
     } else {
         currentUser.uid = null;
@@ -43,6 +48,8 @@ function setUserVars(obj) {
     return new Promise((resolve, reject) => {
         currentUser.fbID = obj.fbID ? obj.fbID : currentUser.fbID;
         currentUser.uid = obj.uid ? obj.uid : currentUser.uid;
+        currentUser.email = obj.email ? obj.email : currentUser.email;
+        currentUser.username = obj.username ? obj.username : currentUser.displayName;
         resolve(currentUser);
     });
 }
@@ -78,8 +85,6 @@ function checkUserFB(uid) {
                 data[0].fbID = key[0];
                 setUserVars(data[0]);
             }
-            //only show once a user is logged in
-            $("#zip-container").removeClass("is-hidden");
         });
 }
 

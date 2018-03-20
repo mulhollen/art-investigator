@@ -27,7 +27,12 @@ document.querySelector('#main').addEventListener('click', (event) => {
             user.setUser(result.user.uid);
             user.checkUserFB(result.user);
             printDiv.empty('');
-            html.homePage(result.user.displayName);  
+
+            db.getFBDetails(result.user.uid).then((user) => {
+                let keys = Object.keys(user);
+                let userKey = keys.shift();
+                html.homePage(user[userKey].displayName);  
+            });
         });
     } else if (event.target.id === "logout"){
         db.logOut()
@@ -52,9 +57,8 @@ document.querySelector('#main').addEventListener('click', (event) => {
         currentUser.displayName = inputOne;
         currentUser.email = inputTwo;
         currentUser.fbID = currentUser.fbID ? currentUser.fbID : currentUser.fbID.name;
-        console.log("current user", currentUser);
     
-        db.updateUserFB(currentUser.fbID, currentUser);
+        db.updateUserFB(currentUser);
         
         printDiv.empty('');
         html.homePage(inputOne);

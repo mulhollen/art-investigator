@@ -13,15 +13,11 @@ let currentUser = {
     displayName: null
 };
 
-// call logout when page loads to avoid currentUser.uid
-//listen for changed state
 firebase.auth().onAuthStateChanged((user) => {
     console.log("onAuthStateChanged", user);
     if (user) {
         console.log("current user.displayname", user.displayName);
         currentUser.uid = user.uid;
-        currentUser.displayName = user.displayName;
-        currentUser.email = user.email;
         console.log("current user Logged in?", currentUser);
     } else {
         currentUser.uid = null;
@@ -79,8 +75,14 @@ function checkUserFB(userObject) {
                     .then((result) => {
                         console.log("user: user added", result);
                         currentUser.fbID = result;
-                    // }).then((tmpUser) => {
-                    //     return setUserVars(tmpUser);
+                        let tmpObj = {
+                            fbID: result.name,
+                            uid: currentUser.uid,
+                            email: currentUser.email,
+                            displayName: currentUser.displayName
+                        };
+                        console.log("temp", tmpObj);
+                        db.addFBkey(tmpObj, result.name);
                     });
             } else {
                 console.log("user: already a user", data);
@@ -95,7 +97,6 @@ function checkUserFB(userObject) {
 
 function makeUserObj(userObject) {
     let userObj = {
-        // fbID: userObject.name,
         uid: userObject.uid,
         email: userObject.email,
         displayName: userObject.displayName

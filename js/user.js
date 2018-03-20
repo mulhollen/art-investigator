@@ -10,7 +10,7 @@ let currentUser = {
     uid: null,
     fbID: null,
     email: null,
-    username: null
+    displayName: null
 };
 
 // call logout when page loads to avoid currentUser.uid
@@ -18,9 +18,10 @@ let currentUser = {
 firebase.auth().onAuthStateChanged((user) => {
     console.log("onAuthStateChanged", user);
     if (user) {
+        console.log("current user.displayname", user.displayName);
         currentUser.uid = user.uid;
+        currentUser.displayName = user.displayName;
         currentUser.email = user.email;
-        currentUser.username = user.displayName;
         console.log("current user Logged in?", currentUser);
     } else {
         currentUser.uid = null;

@@ -61,12 +61,12 @@ function editProfilePage(username, email){
                 <a class="dark-link h3 mt-3" id="change-avatar">change avatar</a>
                 <div class="mt-5 mx-5 border-medium-top">
                     <div class="d-flex flex-row justify-content-center py-4 border-medium-bottom">
-                        <span class="h3">${username}</span>
-                        <input type="text" class="form-control ml-3" id="username">
+                        <span class="h3">username:</span>
+                        <input type="text" class="form-control ml-3" id="username" value="${username}">
                     </div>
                     <div class="d-flex flex-row justify-content-center py-4 border-medium-bottom">
-                        <span class="h3">${email}</span>
-                        <input type="text" class="form-control ml-3" id="email">
+                        <span class="h3">email:</span>
+                        <input type="text" class="form-control ml-3" id="email" value="${email}">
                     </div>
                 </div>
             </div>
@@ -75,12 +75,12 @@ function editProfilePage(username, email){
 
 let vulnerablePage = ` <div class="background-black pb-5">
                             <div class="mx-4 pt-4 d-flex justify-content-between">
-                                <button id="vulnerable-back" type="button" class="circle-button round">
+                                <a id="vulnerable-back" class="circle-button round d-flex justify-content-center align-items-center">
                                     <i class="fas fa-angle-left fa-2x"></i>
-                                </button>
-                                <button id="home" type="button" class="circle-button round">
+                                </a>
+                                <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
                                     <i class="fas fa-home fa-lg"></i>
-                                </button>
+                                </a>
                             </div>
                             <div class="m-5 p-4 square-border rounded">
                                 <h2 class="display-4 white-text">Do you know what it means to feel</h2>
@@ -99,45 +99,47 @@ let vulnerablePage = ` <div class="background-black pb-5">
                             </div>
                             <div class="d-flex justify-content-center center-block">
                                 <div class="hole yellow d-flex align-items-center">
-                                    <input type="text" class="form-control m-3 background-black p-3 d-flex align-items-center" id="hole">
+                                    <input id="hole" type="text" class="form-control m-3 background-black p-3 d-flex align-items-center">
                                 </div>
                             </div>
                         </div>`;
 
-let scaryWordPage = `<div class="background-black pb-5">
-                        <div class="mx-4 pt-4 d-flex justify-content-between">
-                            <button id="scary-word-back" type="button" class="circle-button round">
-                                <i class="fas fa-angle-left fa-2x"></i>
-                            </button>
-                            <button id="home" type="button" class="circle-button round">
-                                <i class="fas fa-home fa-lg"></i>
-                            </button>
-                        </div>
-                        <div class="canvas d-flex justify-content-center">
-                            <div id="canvas" class="align-self-center">
-                                <h1 class="display-4 white-text">${scaryWord}</h1>
-                            </div>
-                        </div>
-                        <div class="background-black">
-                            <div class="green mx-5 p-4">
-                                <h2>That’s really scary! Did you know everyone is scared of something? Let’s take a look…</h2>
-                                <div class=" green mx-3 d-flex justify-content-end">
-                                    <button id="next-scary-word" type="button" class="circle-button round">
-                                        <i class="fas fa-angle-right fa-2x"></i>
-                                    </button>
-                            </div>
-
-                        </div>
-                    </div>`;
+function scaryWordPage(scaryWord) {
+    printDiv.append(
+        `<div class="background-black pb-5">
+            <div class="mx-4 pt-4 d-flex justify-content-between">
+                <a id="scary-word-back" class="circle-button round d-flex justify-content-center align-items-center">
+                    <i class="fas fa-angle-left fa-2x"></i>
+                </a>
+                <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
+                    <i class="fas fa-home fa-lg"></i>
+                </a>
+            </div>
+            <div class="canvas d-flex justify-content-center">
+                <div id="canvas" class="align-self-center">
+                    <h1 class="display-4 white-text">${scaryWord}</h1>
+                </div>
+            </div>
+            <div class="background-black">
+                <div class="green mx-5 p-4">
+                    <h2>That’s really scary! Did you know everyone is scared of something? Let’s take a look…</h2>
+                    <div class=" green mx-3 d-flex justify-content-end">
+                        <a id="next-scary-word" class="circle-button round d-flex justify-content-center align-items-center">
+                            <i class="fas fa-angle-right fa-2x"></i>
+                        </a>
+                </div>
+            </div>
+        </div>`);
+}
 
 let wordCloudPage = `<div>
                     <div class="mx-4 pt-4 d-flex justify-content-between">
-                        <button id="scary-word-back" type="button" class="circle-button round">
+                        <a id="scary-word-back" class="circle-button round d-flex justify-content-center align-items-center">
                             <i class="fas fa-angle-left fa-2x"></i>
-                        </button>
-                        <button id="home" type="button" class="circle-button round">
+                        </a>
+                        <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
                             <i class="fas fa-home fa-lg"></i>
-                        </button>
+                        </a>
                     </div>
                     <div class="canvas">
                         <div id="word-cloud" class="align-self-center">
@@ -148,9 +150,9 @@ let wordCloudPage = `<div>
                         <div class="yellow p-5">
                             <h2>Here are the fears that everyone shared. Can you see yours?</h2>
                             <div class="mx-3 d-flex justify-content-end">
-                                <button id="next-scary-word" type="button" class="circle-button round">
+                                <a id="next-scary-word" class="circle-button round d-flex justify-content-center align-items-center">
                                     <i class="fas fa-angle-right fa-2x"></i>
-                                </button>
+                                </a>
                             </div>
                 
                         </div>
@@ -158,12 +160,12 @@ let wordCloudPage = `<div>
 
 let armorPage = `<div class="background-black pb-5">
                     <div class="mx-4 pt-4 d-flex justify-content-between">
-                        <button id="armor-back" type="button" class="circle-button round">
+                        <a id="armor-back" class="circle-button round d-flex justify-content-center align-items-center">
                             <i class="fas fa-angle-left fa-2x"></i>
-                        </button>
-                        <button id="home" type="button" class="circle-button round">
+                        </a>
+                        <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
                             <i class="fas fa-home fa-lg"></i>
-                        </button>
+                        </a>
                     </div>
                     <div class="mr-5 mt-5 mb-5 p-3 square-border rounded negative-left">
                         <h2 class="p-3 white-text">Nick’s fear was being treated differently from the people around him becuase he didn’t look like them, talk like them or
@@ -172,36 +174,36 @@ let armorPage = `<div class="background-black pb-5">
                         <h1 class="p-3 display-4 white-text">do you have armor that makes you feel strong?</h1>
                     </div>
                     <div class="mt-5 mr-0 ml-5 pl-5 pr-4 yellow rounded-left">
-                        <h2 class="p-5">let's go see the exhibit!</h2>
+                        <a><h2 class="p-5">let's go see the exhibit!</h2></a>
                     </div>
                 </div>`;
 
 let ispyInstructionsPage = `<div class="yellow pb-5 full-height">
                                 <div class="mx-4 pt-4 d-flex justify-content-between">
-                                    <button id="ispy-instructions-back" type="button" class="circle-button round">
+                                    <a id="ispy-instructions-back" class="circle-button round d-flex justify-content-center align-items-center">
                                         <i class="fas fa-angle-left fa-2x"></i>
-                                    </button>
-                                    <button id="home" type="button" class="circle-button round">
+                                    </a>
+                                    <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
                                         <i class="fas fa-home fa-lg"></i>
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="m-5 p-3 square-border-black rounded">
                                     <h1 class="p-3 display-3 text-center">Can you find?</h1>
                                     <h2 class="p-3">Instrustions will be here. This will tell the user how to play hide and seak. Instrustions will be here. This will tell the user how to play hide and seak. Instrustions will be here. This will tell the user how to play hide and seak.</h2>
                                 </div>
                                 <div class="d-flex justify-content-center m-5">
-                                    <button id="ispy-letsgo" class="square-border-black background-white p-3"><h1>let's go!</h1></button>
+                                    <a id="ispy-letsgo" class="square-border-black background-white p-3"><h1>let's go!</h1></a>
                                 </div>
                             </div>`;
 
 let ispyMain = `<div class="${color} pb-5 full-height">
                     <div class="mx-4 pt-4 d-flex justify-content-between">
-                        <button id="${questionBack}" type="button" class="circle-button round">
+                        <a id="${questionBack}" class="circle-button round d-flex justify-content-center align-items-center">
                             <i class="fas fa-angle-left fa-2x"></i>
-                        </button>
-                        <button id="home" type="button" class="circle-button round">
+                        </a>
+                        <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
                             <i class="fas fa-home fa-lg"></i>
-                        </button>
+                        </a>
                     </div>
                     <div class="m-5 p-3 square-border-black rounded background-white">
                         <h1 class="p-3 display-3 text-center">${questionText}</h1>
@@ -215,20 +217,20 @@ let ispyMain = `<div class="${color} pb-5 full-height">
                         <img class="invisible q-img square-border-black" src="${userUpload}">
                     </div>
                     <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end">
-                        <button id="${questionNext}" type="button" class="circle-button round">
+                        <a id="${questionNext}" class="circle-button round d-flex justify-content-center align-items-center">
                             <i class="fas fa-angle-right fa-2x"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>`;
 
 let ispyGallery = `<div class="${color} pb-5 full-height">
                         <div class="mx-4 pt-4 d-flex justify-content-between">
-                            <button id="${questionBack}" type="button" class="circle-button round">
+                            <a id="${questionBack}" class="circle-button round d-flex justify-content-center align-items-center">
                                 <i class="fas fa-angle-left fa-2x"></i>
-                            </button>
-                            <button id="home" type="button" class="circle-button round">
+                            </a>
+                            <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
                                 <i class="fas fa-home fa-lg"></i>
-                            </button>
+                            </a>
                         </div>
                         <div class="m-5 p-3 square-border-black rounded background-white">
                             <h1 class="p-3 display-3 text-center">${questionText}</h1>
@@ -240,9 +242,9 @@ let ispyGallery = `<div class="${color} pb-5 full-height">
                             
                         </div>
                         <div class="blue mx-3 mb-3 fixed-bottom d-flex justify-content-end flex-wrap">
-                            <button id="${questionNext}" type="button" class="circle-button round">
+                            <a id="${questionNext}" class="circle-button round d-flex justify-content-center align-items-center">
                                 <i class="fas fa-angle-right fa-2x"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>`;
 

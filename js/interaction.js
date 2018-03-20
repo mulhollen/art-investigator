@@ -10,7 +10,6 @@ let user = require("./user");
 let login = $("#login");
 let printDiv = $('#main');
 
-
 // Event listeners
 $(document).ready(() => {
     printJS.appendMain(html.signInPage);
@@ -37,9 +36,36 @@ document.querySelector('#main').addEventListener('click', (event) => {
     } else if (event.target.id === "edit-profile") {
         printDiv.empty('');
         let userObj = user.getUserObj();
-        console.log("user obj edit prof", userObj);
-        html.editProfilePage();
+        html.editProfilePage(userObj.displayName, userObj.email);
+    } else if (event.target.id === "edit-cancel") {
+        printDiv.empty('');
+        let userObj = user.getUserObj();
+        html.homePage(userObj.displayName);
+    } else if (event.target.id === "edit-save"){
+        printDiv.empty('');
+        // this is where I need to get displayName to FB and editable. 
+        let userObj = user.getUserObj();
+        html.homePage(userObj.displayName);
+    } else if (event.target.id === "before") {
+        printDiv.empty('');
+        printJS.appendMain(html.vulnerablePage);
+    } else if (event.target.id === "vulnerable-back") {
+        printDiv.empty('');
+        let userObj = user.getUserObj();
+        html.homePage(userObj.displayName);
+    } else if (event.target.id === "home") {
+        printDiv.empty('');
+        let userObj = user.getUserObj();
+        html.homePage(userObj.displayName);
+    } else if (event.target.id === "hole") {
+        console.log("event.keycode", event.keycode);
+        if (event.keyCode === 13) {
+            var input = $("hole").val;
+            console.log("enter press", input);
+            printDiv.empty('');
+            // scary word needs to go to FB
+            html.scaryWordPage(input);
+            }
     }
 });
-
-
+ 

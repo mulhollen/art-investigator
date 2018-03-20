@@ -35,9 +35,9 @@ function addUserFB(userObj) {
     });
 }
 
-function updateUserFB(userObj) {
+function updateUserFB(fbID, userObj) {
     return $.ajax({
-        url: `${firebase.getFBsettings().databaseURL}/user/${userObj.fbID}.json`,
+        url: `${firebase.getFBsettings().databaseURL}/user/${fbID}.json`,
         type: 'PUT',
         data: JSON.stringify(userObj),
         dataType: 'json'

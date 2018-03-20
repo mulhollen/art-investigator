@@ -43,13 +43,21 @@ function getUserObj() {
     return currentUser;
 }
 
+function setDisplayName(val) {
+    currentUser.displayName = val;
+}
+
+function changeEmail(val) {
+    currentUser.email = val;
+}
+
 function setUserVars(obj) {
     console.log("user.setUserVars: obj", obj);
     return new Promise((resolve, reject) => {
         currentUser.fbID = obj.fbID ? obj.fbID : currentUser.fbID;
         currentUser.uid = obj.uid ? obj.uid : currentUser.uid;
         currentUser.email = obj.email ? obj.email : currentUser.email;
-        currentUser.username = obj.username ? obj.username : currentUser.displayName;
+        currentUser.displayName = obj.displayName ? obj.displayName : currentUser.displayName;
         resolve(currentUser);
     });
 }
@@ -60,38 +68,38 @@ function showUser(obj) {
     $("#currentTemp").html(`${userDetails.weather} F in ${userDetails.zipCode}`);
 }
 
-function checkUserFB(uid) {
-    db.getFBDetails(uid)
+function checkUserFB(userObject) {
+    db.getFBDetails(userObject.uid)
         .then((result) => {
             let data = Object.values(result);
             console.log("user: any data?", data.length);
             if (data.length === 0) {
                 console.log("need to add this user to FB", data);
-                db.addUserFB(makeUserObj(uid))
+                db.addUserFB(makeUserObj(userObject))
                     .then((result) => {
-                        console.log("user: user added", uid, result.name);
-                        let tmpUser = {
-                            zipCode: defaultCode,
-                            fbID: result.name,
-                            uid: uid
-                        };
-                        return tmpUser;
-                    }).then((tmpUser) => {
-                        return setUserVars(tmpUser);
+                        console.log("user: user added", result);
+                        currentUser.fbID = result;
+                    // }).then((tmpUser) => {
+                    //     return setUserVars(tmpUser);
                     });
             } else {
                 console.log("user: already a user", data);
                 var key = Object.keys(result);
                 data[0].fbID = key[0];
                 setUserVars(data[0]);
+
             }
         });
 }
 
 
-function makeUserObj(uid) {
+function makeUserObj(userObject) {
     let userObj = {
-        uid: uid,
+        // fbID: userObject.name,
+        uid: userObject.uid,
+        email: userObject.email,
+        displayName: userObject.displayName
+
     };
     return userObj;
 }
@@ -136,5 +144,8 @@ module.exports = {
     setUser,
     setUserVars,
     getUserObj,
-    showUser
+    showUser,
+    setDisplayName,
+    changeEmail,
+    currentUser
 };

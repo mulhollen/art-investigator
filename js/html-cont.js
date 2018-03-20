@@ -132,31 +132,34 @@ function scaryWordPage(scaryWord) {
         </div>`);
 }
 
-let wordCloudPage = `<div>
-                    <div class="mx-4 pt-4 d-flex justify-content-between">
-                        <a id="scary-word-back" class="circle-button round d-flex justify-content-center align-items-center">
-                            <i class="fas fa-angle-left fa-2x"></i>
-                        </a>
-                        <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
-                            <i class="fas fa-home fa-lg"></i>
-                        </a>
-                    </div>
-                    <div class="canvas">
-                        <div id="word-cloud" class="align-self-center">
-                            
+function wordCloudPage() {  
+    printDiv.append(`<div>
+                        <div class="mx-4 pt-4 d-flex justify-content-between">
+                            <a id="word-cloud-back" class="circle-button round d-flex justify-content-center align-items-center">
+                                <i class="fas fa-angle-left fa-2x"></i>
+                            </a>
+                            <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
+                                <i class="fas fa-home fa-lg"></i>
+                            </a>
                         </div>
-                    </div>
-                    <div class="background-black">
-                        <div class="yellow p-5">
-                            <h2>Here are the fears that everyone shared. Can you see yours?</h2>
-                            <div class="mx-3 d-flex justify-content-end">
-                                <a id="next-scary-word" class="circle-button round d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-angle-right fa-2x"></i>
-                                </a>
+                        <div class="canvas">
+                            <div id="word-cloud" class="align-self-center">
+                                
                             </div>
-                
                         </div>
-                </div>`;
+                        <div class="background-black">
+                            <div class="yellow p-5">
+                                <h2>Here are the fears that everyone shared. Can you see yours?</h2>
+                                <div class="mx-3 d-flex justify-content-end">
+                                    <a id="next-word-cloud" class="circle-button round d-flex justify-content-center align-items-center">
+                                        <i class="fas fa-angle-right fa-2x"></i>
+                                    </a>
+                                </div>
+                    
+                            </div>
+                    </div>`
+    );
+}
 
 let armorPage = `<div class="background-black pb-5">
                     <div class="mx-4 pt-4 d-flex justify-content-between">

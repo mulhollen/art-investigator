@@ -10,6 +10,8 @@ let user = require("./user");
 let login = $("#login");
 let printDiv = $('#main');
 
+let input;
+
 // Event listeners
 $(document).ready(() => {
     printJS.appendMain(html.signInPage);
@@ -58,14 +60,28 @@ document.querySelector('#main').addEventListener('click', (event) => {
         let userObj = user.getUserObj();
         html.homePage(userObj.displayName);
     } else if (event.target.id === "hole") {
-        console.log("event.keycode", event.keycode);
-        if (event.keyCode === 13) {
-            var input = $("hole").val;
-            console.log("enter press", input);
-            printDiv.empty('');
-            // scary word needs to go to FB
-            html.scaryWordPage(input);
+        document.querySelector('#hole').addEventListener('keypress', function (e) {
+            var key = e.which || e.keyCode;
+            if (key === 13) { 
+                input = document.getElementById("hole").value;
+                console.log("enter press", input);
+                printDiv.empty('');
+                // scary word needs to go to FB
+                html.scaryWordPage(input);
             }
+        });
+    } else if (event.target.id === "scary-word-back") {
+        printDiv.empty('');
+        printJS.appendMain(html.vulnerablePage);
+    } else if (event.target.id === "next-scary-word") {
+        printDiv.empty('');
+        html.wordCloudPage();
+    } else if (event.target.id === "word-cloud-back") {
+        printDiv.empty('');
+        html.scaryWordPage();
+    } else if (event.target.id === "next-word-cloud") {
+        printDiv.empty('');
+        printJS.appendMain(html.armorPage);
     }
 });
  

@@ -142,11 +142,14 @@ function wordCloudPage() {
                                 <i class="fas fa-home fa-lg"></i>
                             </a>
                         </div>
-                        <div class="canvas">
-                            <div id="word-cloud" class="align-self-center">
-                                
-                            </div>
-                        </div>
+                        <div class="canvas"></div>
+                            <script>
+                            d3.wordcloud()
+                                .size([800, 400])
+                                .selector('#canvas')
+                                .words([{text: 'word', size: 5}, {text: 'cloud', size: 15}])
+                                .start();
+                            </script>
                         <div class="background-black">
                             <div class="yellow p-5">
                                 <h2>Here are the fears that everyone shared. Can you see yours?</h2>
@@ -204,9 +207,10 @@ let ispyInstructionsPage = `<div class="yellow pb-5 full-height">
                                 </div>
                             </div>`;
 
-function ispyMain(color, questionText, hintID, qImage, questionNext){
+function ispyMain(color, questionText, qImage, ID){
+    printDiv.empty('');
     printDiv.append(
-        `<div class="${color} pb-5 full-height">
+        `<div id="iSpyMain" class="${color} pb-5 full-height">
             <div class="mx-4 pt-4 d-flex justify-content-between">
                 <a id="questionBack" class="circle-button round d-flex justify-content-center align-items-center">
                     <i class="fas fa-angle-left fa-2x"></i>
@@ -218,21 +222,24 @@ function ispyMain(color, questionText, hintID, qImage, questionNext){
             <div class="m-5 p-3 square-border-black rounded background-white">
                 <h1 class="p-3 display-3 text-center">${questionText}</h1>
                 <div class="d-flex justify-content-around mt-4">
-                    <button class="visible" id="${hintId}"><i class="fas fa-search fa-4x"></i></button>
-                    <button id="cameraId"><i class="fas fa-camera fa-4x"></i></button>
+                    <a class="visible" id="hintId"><i class="fas fa-search fa-4x"></i></a>
+                    <a id="cameraId"><i class="fas fa-camera fa-4x"></i></a>
                 </div>
             </div>
             <div class="d-flex justify-content-around mt-4">
-                <img class="invisible q-img square-border-black" src="${qImage}">
-                <img class="invisible q-img square-border-black" src="${userUpload}">
+                <img id="hintImg" class="invisible q-img square-border-black" src="${qImage}">
+                <img id="userUpload" class="invisible q-img square-border-black" src="${userUpload}">
             </div>
             <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end">
-                <a id="${questionNext}" class="circle-button round d-flex justify-content-center align-items-center">
+                <a id="${ID}" class="circle-button round d-flex justify-content-center align-items-center">
                     <i class="fas fa-angle-right fa-2x"></i>
                 </a>
             </div>
         </div>`);
     }
+
+let imageUpload = `<div class="green pb-5 full-height">
+                    </div>`;
 
 let ispyGallery = `<div class="${color} pb-5 full-height">
                         <div class="mx-4 pt-4 d-flex justify-content-between">

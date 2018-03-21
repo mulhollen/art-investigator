@@ -14,12 +14,60 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
      <!-- SCSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="dist/css/main.css">
-
+    <!-- wordcloud -->
+    <script src="https://d3js.org/d3.v4.js"></script>
 </head>
 <body>
 
     <main id="main">
+        <div class="green pb-5 full-height">
+            <div class="background-white m-4 square-border-black">
+                <div class="mx-4 pt-4 d-flex justify-content-between">
+                    <a id="cancelUpload" class="circle-button round d-flex justify-content-center align-items-center">
+                        <i class="fas fa-times fa-lg"></i>
+                    </a>
+                </div>
+                <div class="d-flex justify-content-center flex-column">
+                    <input type="file" onchange="previewFile()">
+                    <br>
+                    <div class="background-white m-4 d-flex justify-content-center align-items-center square-border-black q-img">
+                        <img src="" height="200" alt="Image preview...">
+                    </div>
+                </div>
+                
+<!-- <a id="upload">
+    <input type="file" on chnge="previewFile()"><i class="fas fa-camera fa-4x"></i>
+</a> -->
+                
+<script>
+    function previewFile() {
+        var preview = document.querySelector('img'); //selects the query named img
+        var file = document.querySelector('input[type=file]').files[0]; //sames as here
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file); //reads the data as a URL
+        } else {
+            preview.src = "";
+        }
+    }
+
+    previewFile();  //calls the function named previewFile()
+</script>
+                <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end">
+                    <a id="${ID}" class="circle-button round d-flex justify-content-center align-items-center">
+                        <i class="fas fa-check fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </main>
+
+
     
     
     <!-- JQuery -->
@@ -28,6 +76,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <!-- Bootstrap Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- charts.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
     <!-- app.js -->
     <script type='text/javascript' src='dist/app.js'></script>
 </body>

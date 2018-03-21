@@ -1,6 +1,7 @@
 "use strict";
 
 let $ = require('jquery');
+let firebase = require("firebase");
 
 
 let printDiv = $('#main');
@@ -222,7 +223,7 @@ function ispyMain(color, questionText, qImage, ID){
             <div class="m-5 p-3 square-border-black rounded background-white">
                 <h1 class="p-3 display-3 text-center">${questionText}</h1>
                 <div class="d-flex justify-content-around mt-4">
-                    <a class="visible" id="hintId"><i class="fas fa-search fa-4x"></i></a>
+                    <a class="visible display-4" id="hintId">hint</a>
                     <a id="cameraID" class="display-4">camera</a>
                 </div>
             </div>
@@ -249,7 +250,7 @@ function imageUpload(){
                     </a>
                 </div>
                 <div class="mt-4 d-flex justify-content-center align-items-center flex-column">
-                    <input type="file" onchange="previewFile()">
+                    <input type="file" onchange="previewFile(this.files)">
                     <br>
                     <div class="background-white m-4 d-flex justify-content-center align-items-center square-border-black q-img">
                         <img src="" height="200" alt="Image preview...">
@@ -261,24 +262,19 @@ function imageUpload(){
                     </a>
                 </div>
                 <script>
-                    function previewFile() {
+                    function previewFile(fileUpload) {
+                        console.log("file upload", fileUpload);
+
                         var preview = document.querySelector('img'); //selects the query named img
-                        var file = document.querySelector('input[type=file]').files[0]; //sames as here
-                        var reader = new FileReader();
+                        var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+                        var reader  = new FileReader();
+
+                         var storageRef = firebase.storage().ref('ai_images' + file.name);
+                        storageRef.put(file);
+
 
                         reader.onloadend = function () {
                             preview.src = reader.result;
-
-                            let currentUser = user.getUserObj();
-                            let q_01 = { image: preview.src };
-                            console.log("q_01", q_01)
-                            // db.addFBkey(scaryObj, currentUser.fbID).then(() => {
-                            //     db.getFBDetails(currentUser.uid).then((user) => {
-                            //         let keys = Object.keys(user);
-                            //         let userKey = keys.shift();
-                            //         html.scaryWordPage(user[userKey].scaryword);
-                            //     });
-                            // });
                         }
 
                         if (file) {
@@ -286,9 +282,9 @@ function imageUpload(){
                         } else {
                             preview.src = "";
                         }
+                       
                     }
 
-                    previewFile();  //calls the function named previewFile()
                 </script>
             </div>
         </div>`

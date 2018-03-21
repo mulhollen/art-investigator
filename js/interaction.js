@@ -16,9 +16,9 @@ let printDiv = $('#main');
 let input;
 
 // Event listeners
-// $(document).ready(() => {
-//     printJS.appendMain(html.signInPage);
-// });
+$(document).ready(() => {
+    printJS.appendMain(html.signInPage);
+});
 
 
 document.querySelector('#main').addEventListener('click', (event) => {
@@ -127,8 +127,9 @@ document.querySelector('#main').addEventListener('click', (event) => {
     } else if (event.target.id === "hintId") {
         console.log("i've been clicked");
         $("#hintImg").removeClass("invisible");
-    } else if (event.target.id === "camera") {
-        // user upload img 
+    } else if (event.target.id === "cameraID") {
+        console.log("clicked the camera ID");
+        html.imageUpload();
             
 
     }

@@ -19,7 +19,7 @@
     },
     "dependencies": {
         "d3": "^4.13.0",
-        "firebase": "^3.6.9",
+        "firebase": "^3.9.0",
         "materialize": "^1.0.0",
         "materialize-css": "^0.97.8"
     }

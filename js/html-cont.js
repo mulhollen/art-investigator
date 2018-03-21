@@ -1,7 +1,8 @@
 "use strict";
 
 let $ = require('jquery');
-let firebase = require("firebase");
+let firebase = require("./fb-config");
+let imgUpload = require("./img-upload");
 
 
 let printDiv = $('#main');
@@ -250,7 +251,7 @@ function imageUpload(){
                     </a>
                 </div>
                 <div class="mt-4 d-flex justify-content-center align-items-center flex-column">
-                    <input type="file" onchange="previewFile(this.files)">
+                    <input id="uploader" type="file">
                     <br>
                     <div class="background-white m-4 d-flex justify-content-center align-items-center square-border-black q-img">
                         <img src="" height="200" alt="Image preview...">
@@ -261,31 +262,6 @@ function imageUpload(){
                         <i class="fas fa-check fa-lg"></i>
                     </a>
                 </div>
-                <script>
-                    function previewFile(fileUpload) {
-                        console.log("file upload", fileUpload);
-
-                        var preview = document.querySelector('img'); //selects the query named img
-                        var file    = document.querySelector('input[type=file]').files[0]; //sames as here
-                        var reader  = new FileReader();
-
-                         var storageRef = firebase.storage().ref('ai_images' + file.name);
-                        storageRef.put(file);
-
-
-                        reader.onloadend = function () {
-                            preview.src = reader.result;
-                        }
-
-                        if (file) {
-                            reader.readAsDataURL(file); //reads the data as a URL
-                        } else {
-                            preview.src = "";
-                        }
-                       
-                    }
-
-                </script>
             </div>
         </div>`
     );}

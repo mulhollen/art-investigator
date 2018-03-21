@@ -83,6 +83,22 @@ function logOut() {
     return firebase.auth().signOut();
 }
 
+function uploadStorageBucket(file) {
+    console.log("FIREBASSSSSE", firebase);
+    const ref = firebase.storage().ref();
+    const name = (+new Date()) + '-' + file.name;
+    const metadata = { contentType: file.type };
+    const task = ref.child(name).put(file, metadata);
+
+        task.then((snapshot) => {
+            const url = snapshot.downloadURL;
+            console.log(url);
+            document.querySelector('#someImageTagID').src = url;
+        }).catch((error) => {
+            console.error(error);
+        });
+}
+
 module.exports = {
     getFBDetails,
     addUserFB,
@@ -91,5 +107,6 @@ module.exports = {
     loginUser,
     logInGoogle,
     logOut,
-    addFBkey
+    addFBkey,
+    uploadStorageBucket
 };

@@ -1,40 +1,26 @@
 "use strict";
 let $ = require('../lib/node_modules/jquery');
+let db = require("./db-interaction");
 
+function previewFile(fileUpload) {
+    console.log("file upload", fileUpload);
 
-$(document).ready(function () {
-    $(document).on('change', '.btn-file :file', function () {
-        var input = $(this),
-            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-        input.trigger('fileselect', [label]);
-    });
+    var preview = document.querySelector('img'); //selects the query named img
+    var file = document.querySelector('input[type=file]').files[0]; //sames as here
+    var reader = new FileReader();
 
-    $('.btn-file :file').on('fileselect', function (event, label) {
+    reader.onloadend = function () {
+        preview.src = reader.result;
+    };
 
-        var input = $(this).parents('.input-group').find(':text'),
-            log = label;
-
-        if (input.length) {
-            input.val(log);
-        }
-        // } else {
-        //     if (log) alert(log);
-        // }
-
-    });
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#img-upload').attr('src', e.target.result);
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
+    if (file) {
+        reader.readAsDataURL(file); //reads the data as a URL
+    } else {
+        preview.src = "";
     }
 
-    $("#imgInp").change(function () {
-        readURL(this);
-    });
-});
+    db.uploadStorageBucket(fileUpload);
+
+}
+
+module.exports = {previewFile};

@@ -8,7 +8,7 @@ let db = require("./db-interaction");
 let user = require("./user");
 let game = require("./ispy");
 let questions = require("./questions");
-let img = require("./img-upload");
+let imgUpload = require("./img-upload");
 
 let login = $("#login");
 let printDiv = $('#main');
@@ -130,7 +130,8 @@ document.querySelector('#main').addEventListener('click', (event) => {
     } else if (event.target.id === "cameraID") {
         console.log("clicked the camera ID");
         html.imageUpload();
-            
+        $("#uploader").change(() => imgUpload.previewFile(this.files));
+    } else if (event.target.id === "save") {
 
     }
 });

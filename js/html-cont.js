@@ -309,7 +309,7 @@ function after(username, scaryWord, imgsrc){
                     <br>
                     <h3>Here are some pictures you took:</h3>
                     <div class="mt-5 mx-5 d-flex justify-content-around">
-                        <img class="square-border-black g-image" src="${imgsrc}">
+                        <img class="square-border-black q-img" src="${imgsrc}">
                     </div>
                 </div>
             </div>`);

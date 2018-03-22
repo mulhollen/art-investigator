@@ -148,6 +148,11 @@ document.querySelector('#main').addEventListener('click', (event) => {
                 game.playISpy(questions.questionArray);
             });
         });
+    } else if (event.target.id === "after"){
+        printDiv.empty('');
+        printDiv.append(
+            
+        );
     }
 });
  

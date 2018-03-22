@@ -294,6 +294,27 @@ let ispyGallery = `<div class="${color} pb-5 full-height">
 
 let ispyGalleryUpload = `<img class="g-img square-border-black m-4" src="${galleryUpload}">`;
 
+function after(username, scaryWord, imgsrc){
+    printDiv.append(
+        `<div>
+                <div class="mx-3 mt-2 d-flex justify-content-between">
+                    <a class="light-link h4" id="logout">logout</a>
+                    <a class="light-link h4" id="edit-profile">edit profile</a>
+                </div>
+                <div class="text-center">
+                    <img class="round mt-5 center-block" src="img/avatar/gator.jpg">
+                    <h1 class="display-3 mt-2">Hi, ${username}!</h1>
+                    <h2 class="display-5">Here's some things you did today!</h2>
+                    <h2>You learned that ${scaryWord} is something that you can conquer!</h2>
+                    <br>
+                    <h3>Here are some pictures you took!</h3>
+                    <div class="mt-5 mx-5 d-flex justify-content-around">
+                        <img src="${imgsrc}">
+                    </div>
+                </div>
+            </div>`);
+}
+
 module.exports = { 
                 signInPage, 
                 homePage, 
@@ -306,5 +327,6 @@ module.exports = {
                 ispyMain,
                 ispyGallery,
                 ispyGalleryUpload,
-                imageUpload 
+                imageUpload,
+                after 
                 };

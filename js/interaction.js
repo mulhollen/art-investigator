@@ -149,10 +149,15 @@ document.querySelector('#main').addEventListener('click', (event) => {
             });
         });
     } else if (event.target.id === "after"){
-        printDiv.empty('');
-        printDiv.append(
+        let currentUser = user.getUserObj();
+        db.getFBDetails(currentUser.uid).then((user) => {
+            let keys = Object.keys(user);
+            let userKey = keys.shift();
+            console.log("keys", user[userKey]);
             
-        );
+            printDiv.empty('');
+            html.after(user[userKey].displayName, user[userKey].scaryword, user[userKey].q_01);
+        });
     }
 });
  

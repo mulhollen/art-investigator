@@ -6,6 +6,9 @@ let printJS = require("./print");
 let html = require("./html-cont");
 let db = require("./db-interaction");
 let user = require("./user");
+let game = require("./ispy");
+let questions = require("./questions");
+let imgUpload = require("./img-upload");
 
 let login = $("#login");
 let printDiv = $('#main');
@@ -116,14 +119,20 @@ document.querySelector('#main').addEventListener('click', (event) => {
         printJS.appendMain(html.armorPage);
     } else if (event.target.id === "ispy-letsgo") {
         printDiv.empty('');
-        html.ispyMain();
+        
+        game.playISpy(questions.questionArray);
     } else if (event.target.id === "questionBack" ){
         printDiv.empty('');
         printJS.appendMain(html.ispyInstructionsPage);
-    } else if (event.target.id === "ispy-letsgo") {
-        printDiv.empty('');
-        // this guy needs params
-        html.ispyMain(); 
+    } else if (event.target.id === "hintId") {
+        console.log("i've been clicked");
+        $("#hintImg").removeClass("invisible");
+    } else if (event.target.id === "cameraID") {
+        console.log("clicked the camera ID");
+        html.imageUpload();
+        $("#uploader").change(() => imgUpload.previewFile(this.files));
+    } else if (event.target.id === "save") {
+
     }
 });
  

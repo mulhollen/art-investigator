@@ -1,7 +1,7 @@
 "use strict";
 
 
-let firebase = require("firebase/app"),
+let firebase = require("firebase"),
     fb = require("./fb-key"),
     storage = 'firebase/storage',
     fbData = fb();

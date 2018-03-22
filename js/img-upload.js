@@ -19,7 +19,7 @@ function previewFile(fileUpload) {
         preview.src = "";
     }
 
-    db.uploadStorageBucket(fileUpload);
+    db.uploadStorageBucket(file);
 
 }
 

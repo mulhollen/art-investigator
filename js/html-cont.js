@@ -254,7 +254,7 @@ function imageUpload(){
                     <input id="uploader" type="file">
                     <br>
                     <div class="background-white m-4 d-flex justify-content-center align-items-center square-border-black q-img">
-                        <img src="" height="200" alt="Image preview...">
+                        <img id="theuploaded" src="" height="200" alt="Image preview...">
                     </div>
                 </div>
                 <div class="mx-3 mb-3 d-flex justify-content-end">

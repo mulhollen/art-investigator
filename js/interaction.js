@@ -132,7 +132,21 @@ document.querySelector('#main').addEventListener('click', (event) => {
         html.imageUpload();
         $("#uploader").change(() => imgUpload.previewFile(this.files));
     } else if (event.target.id === "save") {
+        console.log("you clicked save");
 
+        let url = $("#theuploaded").src;
+        let currentUser = user.getUserObj();
+        let photoObj = { q_01: url };
+
+        printDiv.empty('');
+
+        db.addFBkey(photoObj, currentUser.fbID).then(() => {
+            db.getFBDetails(currentUser.uid).then((user) => {
+                let keys = Object.keys(user);
+                let userKey = keys.shift();
+                game.playISpy(questions.questionArray);
+            });
+        });
     }
 });
  

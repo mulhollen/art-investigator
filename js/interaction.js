@@ -158,6 +158,9 @@ document.querySelector('#main').addEventListener('click', (event) => {
             printDiv.empty('');
             html.after(user[userKey].displayName, user[userKey].scaryword, user[userKey].q_01);
         });
+    } else if (event.target.id === "after-back"){
+        let currentUser = user.getUserObj();
+        html.homePage(currentUser.displayName);
     }
 });
  

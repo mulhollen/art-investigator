@@ -119,7 +119,7 @@ function scaryWordPage(scaryWord) {
             </div>
             <div class="canvas d-flex justify-content-center">
                 <div id="canvas" class="align-self-center">
-                    <h1 class="display-4 white-text">${scaryWord}</h1>
+                    <h1 class="display-4 white-text shake">${scaryWord}</h1>
                 </div>
             </div>
             <div class="background-black">

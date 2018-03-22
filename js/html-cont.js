@@ -119,7 +119,7 @@ function scaryWordPage(scaryWord) {
             </div>
             <div class="canvas d-flex justify-content-center">
                 <div id="canvas" class="align-self-center">
-                    <h1 class="display-4 white-text">${scaryWord}</h1>
+                    <h1 class="display-4 white-text shake">${scaryWord}</h1>
                 </div>
             </div>
             <div class="background-black">
@@ -302,14 +302,14 @@ function after(username, scaryWord, imgsrc){
                     <i class="fas fa-angle-left fa-2x"></i>
                 </a>
                 <div class="text-center">
-                    <img class="round mt-5 center-block after-img" src="img/avatar/gator.jpg">
                     <h1 class="display-3 mt-2">Hi, ${username}!</h1>
+                    <img class="round my-5 center-block after-img" src="img/avatar/gator.jpg">
                     <h2 class="display-5">Here's some things you did today!</h2>
-                    <h2>You learned that <b>${scaryWord}</b> is something that you can conquer!</h2>
+                    <h2>You learned that <i>${scaryWord}</i> is something that you can conquer!</h2>
                     <br>
-                    <h3>Here are some pictures you took!</h3>
+                    <h3>Here are some pictures you took:</h3>
                     <div class="mt-5 mx-5 d-flex justify-content-around">
-                        <img src="${imgsrc}">
+                        <img class="square-border-black g-image" src="${imgsrc}">
                     </div>
                 </div>
             </div>`);

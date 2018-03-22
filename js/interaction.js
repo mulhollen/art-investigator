@@ -119,7 +119,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
         printJS.appendMain(html.armorPage);
     } else if (event.target.id === "ispy-letsgo") {
         printDiv.empty('');
-        
+        // there's an error happening here
         game.playISpy(questions.questionArray);
     } else if (event.target.id === "questionBack" ){
         printDiv.empty('');
@@ -160,6 +160,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
         });
     } else if (event.target.id === "after-back"){
         let currentUser = user.getUserObj();
+        printDiv.empty('');
         html.homePage(currentUser.displayName);
     }
 });

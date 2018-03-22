@@ -134,16 +134,17 @@ document.querySelector('#main').addEventListener('click', (event) => {
     } else if (event.target.id === "save") {
         console.log("you clicked save");
 
-        let url = $("#theuploaded").src;
+        let url = $("#theuploaded").attr('src');
         let currentUser = user.getUserObj();
         let photoObj = { q_01: url };
 
-        printDiv.empty('');
+        console.log("URLLLLL", url);
 
         db.addFBkey(photoObj, currentUser.fbID).then(() => {
             db.getFBDetails(currentUser.uid).then((user) => {
                 let keys = Object.keys(user);
                 let userKey = keys.shift();
+                printDiv.empty('');
                 game.playISpy(questions.questionArray);
             });
         });

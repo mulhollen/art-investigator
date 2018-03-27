@@ -3,13 +3,13 @@
 var questionArray = 
     [
         {
-            q01: "A Donald Duck figure?",
+            q: "A Donald Duck figure?",
             hint: "../img/hints/q_02.png",
-            id: "01"
+            id_1: "01"
         },
         {
-            q02: "Something that makes you feel strong?",
-            id: "02"
+            q: "Something that makes you feel strong?",
+            id_1: "02"
         }
     ];
 

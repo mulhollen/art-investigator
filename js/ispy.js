@@ -5,22 +5,29 @@ let html = require("./html-cont");
 
 let main = $("#iSpyMain");
 
+var colorList = ["red", "orange", "yellow", "green", "blue", "purple"];
+
+let counter = 0;
+
 function playISpy(array){
+
+    if (counter <= 10) {
     let color = randColor(colorList);
-    let question = array[0].q01;
-    let hintImg = array[0].hint;
-    let nextID = array[0].id;
+    let question = array[counter].q;
+    let hintImg = array[counter].hint;
+    let nextID = array[counter].id_counter;
 
     html.ispyMain(color, question, hintImg, nextID);
 
+    counter = counter + 1;
+    }
 }
 
-var colorList = ["red", "orange", "yellow", "green", "blue", "purple"];
 
-var randColor = function (colors) {
+function randColor(colors) {
     var choice = Math.floor(Math.random() * colors.length);
     return colors[choice];
-};
+}
 
 module.exports = {playISpy};
 

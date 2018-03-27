@@ -14,6 +14,12 @@ let login = $("#login");
 let printDiv = $('#main');
 
 let input;
+let FBid;
+let num = 0;
+
+function makeID() {
+    FBid = "id_" + num;
+}
 
 // Event listeners
 $(document).ready(() => {
@@ -132,11 +138,11 @@ document.querySelector('#main').addEventListener('click', (event) => {
         html.imageUpload();
         $("#uploader").change(() => imgUpload.previewFile(this.files));
     } else if (event.target.id === "save") {
-        console.log("you clicked save");
 
         let url = $("#theuploaded").attr('src');
         let currentUser = user.getUserObj();
-        let photoObj = { q_01: url };
+        let id = FBid;
+        let photoObj = { id: url };
 
         console.log("URLLLLL", url);
 

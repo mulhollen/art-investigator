@@ -11,11 +11,11 @@ let counter = 0;
 
 function playISpy(array){
 
-    if (counter <= 10) {
+    if (counter <= 11) {
     let color = randColor(colorList);
     let question = array[counter].q;
     let hintImg = array[counter].hint;
-    let nextID = array[counter].id_counter;
+    let nextID = array[counter].id;
 
     html.ispyMain(color, question, hintImg, nextID);
 

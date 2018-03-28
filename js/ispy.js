@@ -5,37 +5,40 @@ let html = require("./html-cont");
 
 let main = $("#iSpyMain");
 
+var colorList = ["red", "orange", "yellow", "green", "blue", "purple"];
+
+let counter = 0;
+
 function playISpy(array){
-    let question = array[0].q01;
-    let hintImg = array[0].hint;
-    let nextID = array[0].id;
 
-    html.ispyMain("yellow", question, hintImg, nextID);
+    if (counter <= 11) {
+    let color = randColor(colorList);
+    let question = array[counter].q;
+    let hintImg = array[counter].hint;
+    let nextID = array[counter].id;
 
+    html.ispyMain(color, question, hintImg, nextID);
+
+    counter = counter + 1;
+    }
 }
-module.exports = {playISpy};
-// function backgroundColor(){
-//     switch (random) {
-//         case 0:
-//             main.addClass("red");
-//             break;
-//         case 1:
-//             main.addClass("orange");
-//             break;
-//         case 3:
-//             main.addClass("yellow");
-//             break;
-//         case 4:
-//             main.addClass("green");
-//             break;
-//         case 5:
-//             main.addClass("blue");
-//             break;
-//         case 6:
-//             main.addClass("violet");
-//             break;
-//     }
-// }
+
+function playLast(position){
+    let color = randColor(colorList);
+    let question = position.q;
+    let hintImg = position.hint;
+    let nextID = position.id;
+
+    html.ispyMain(color, question, hintImg, nextID);
+}
+
+
+function randColor(colors) {
+    var choice = Math.floor(Math.random() * colors.length);
+    return colors[choice];
+}
+
+module.exports = { playISpy, colorList, randColor, playLast};
 
 
 // color, questionText, hintID, qImage, questionNext

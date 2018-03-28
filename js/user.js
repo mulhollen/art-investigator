@@ -4,7 +4,7 @@ let firebase = require("./fb-config"),
     db = require("./db-interaction"),
     $ = require("jquery");
 
-let defaultCode = 37027;
+// let defaultCode = 37027;
 
 let currentUser = {
     uid: null,
@@ -14,15 +14,15 @@ let currentUser = {
 };
 
 firebase.auth().onAuthStateChanged((user) => {
-    console.log("onAuthStateChanged", user);
+    // console.log("onAuthStateChanged", user);
     if (user) {
-        console.log("current user.displayname", user.displayName);
+        // console.log("current user.displayname", user.displayName);
         currentUser.uid = user.uid;
-        console.log("current user Logged in?", currentUser);
+        // console.log("current user Logged in?", currentUser);
     } else {
         currentUser.uid = null;
         currentUser.fbID = null;
-        console.log("current user NOT logged in:", currentUser);
+        // console.log("current user NOT logged in:", currentUser);
     }
 });
 
@@ -52,7 +52,7 @@ function changeEmail(val) {
 }
 
 function setUserVars(obj) {
-    console.log("user.setUserVars: obj", obj);
+    // console.log("user.setUserVars: obj", obj);
     return new Promise((resolve, reject) => {
         currentUser.fbID = obj.fbID ? obj.fbID : currentUser.fbID;
         currentUser.uid = obj.uid ? obj.uid : currentUser.uid;
@@ -72,12 +72,12 @@ function checkUserFB(userObject) {
     db.getFBDetails(userObject.uid)
         .then((result) => {
             let data = Object.values(result);
-            console.log("user: any data?", data.length);
+            // console.log("user: any data?", data.length);
             if (data.length === 0) {
                 console.log("need to add this user to FB", data);
                 db.addUserFB(makeUserObj(userObject))
                     .then((result) => {
-                        console.log("user: user added", result);
+                        // console.log("user: user added", result);
                         currentUser.fbID = result;
                         let tmpObj = {
                             fbID: result.name,
@@ -86,11 +86,11 @@ function checkUserFB(userObject) {
                         db.addFBkey(tmpObj, result.name);
                     });
             } else {
-                console.log("user: already a user", data[0]);
+                // console.log("user: already a user", data[0]);
                 var key = Object.keys(result);
                 // data[0].fbID = key[0];
                 setUserVars(data[0]);
-                console.log("current user fbid", currentUser.fbID);
+                // console.log("current user fbid", currentUser.fbID);
 
             }
         });

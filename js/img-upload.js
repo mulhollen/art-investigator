@@ -3,7 +3,7 @@ let $ = require('../lib/node_modules/jquery');
 let db = require("./db-interaction");
 
 function previewFile(fileUpload) {
-    console.log("file upload", fileUpload);
+    // console.log("file upload", fileUpload);
 
     var preview = document.querySelector('img'); //selects the query named img
     var file = document.querySelector('input[type=file]').files[0]; //sames as here
@@ -19,8 +19,9 @@ function previewFile(fileUpload) {
         preview.src = "";
     }
 
+    console.log("making it to uploadStorageBucket");
     db.uploadStorageBucket(file);
-
+    $("#save").removeClass("disabled");
 }
 
 module.exports = {previewFile};

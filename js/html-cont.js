@@ -233,7 +233,7 @@ function ispyMain(color, questionText, qImage, ID){
                 <img id="userUpload" class="invisible q-img square-border-black" src="${userUpload}">
             </div>
             <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end">
-                <a id="${ID}" class="circle-button round d-flex justify-content-center align-items-center">
+                <a id="iSpyNext" class="circle-button round d-flex justify-content-center align-items-center">
                     <i class="fas fa-angle-right fa-2x"></i>
                 </a>
             </div>
@@ -258,8 +258,8 @@ function imageUpload(){
                     </div>
                 </div>
                 <div class="mx-3 mb-3 d-flex justify-content-end">
-                    <a id="save" class="circle-button round d-flex justify-content-center align-items-center">
-                        <i class="fas fa-check fa-lg"></i>
+                    <a class="circle-button round d-flex justify-content-center align-items-center">
+                        <i id ="save" class="fas fa-check fa-lg"></i>
                     </a>
                 </div>
             </div>

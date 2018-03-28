@@ -12,7 +12,7 @@ $("#login").click(function () {
     console.log("clicked login");
     db.logInGoogle()
         .then((result) => {
-            console.log("result from login", result.user.uid);
+            // console.log("result from login", result.user.uid);
             user.setUser(result.user.uid);
             $("#login").addClass("is-hidden");
             $("#logout").removeClass("is-hidden");
@@ -21,7 +21,7 @@ $("#login").click(function () {
 });
 
 $("#logout").click(() => {
-    console.log("main.logout clicked");
+    // console.log("main.logout clicked");
     db.logOut();
     $("#login").removeClass("is-hidden");
     $("#logout").addClass("is-hidden");

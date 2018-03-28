@@ -137,7 +137,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
     } else if (event.target.id === "cameraID") {
         // console.log("clicked the camera ID");
         html.imageUpload();
-        $("#save").prop("disabled", true);
+        $("#save").addClass("disabled");
         $("#uploader").change(() => imgUpload.previewFile(this.files));
     } else if (event.target.id === "save") {
 

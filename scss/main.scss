@@ -159,4 +159,6 @@ a:active {
 
 .disabled {
     color: $gray;
+    pointer-events: none;
+    cursor: default;
 }

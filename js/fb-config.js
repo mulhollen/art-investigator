@@ -20,7 +20,7 @@ var config = {
 
 
 firebase.initializeApp(config);
-console.log("firebase", firebase);
+// console.log("firebase", firebase);
 firebase.getFBsettings = () => {
     // console.log("fb-config.getFBsettings", config);
     return config;

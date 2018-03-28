@@ -14,11 +14,12 @@ let login = $("#login");
 let printDiv = $('#main');
 
 let input;
-let FBid;
 let num = 0;
 
 function makeID() {
-    FBid = "id_" + num;
+    let FBid = "id_" + num;
+    num = num + 1;
+    return FBid;
 }
 
 // Event listeners
@@ -29,10 +30,10 @@ $(document).ready(() => {
 
 document.querySelector('#main').addEventListener('click', (event) => {
     if (event.target.id === "login") {
-        console.log("login", event.target.id);
+        // console.log("login", event.target.id);
         db.logInGoogle()
         .then((result) => {
-            console.log("result from login", result.user);
+            // console.log("result from login", result.user);
             user.setUser(result.user.uid);
             user.checkUserFB(result.user);
             printDiv.empty('');
@@ -92,7 +93,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
                 let scaryObj = {scaryword: input};
                 
                 printDiv.empty('');
-                
+
                 db.addFBkey(scaryObj, currentUser.fbID).then( () => {
                     db.getFBDetails(currentUser.uid).then((user) => {
                         let keys = Object.keys(user);
@@ -131,38 +132,68 @@ document.querySelector('#main').addEventListener('click', (event) => {
         printDiv.empty('');
         printJS.appendMain(html.ispyInstructionsPage);
     } else if (event.target.id === "hintId") {
-        console.log("i've been clicked");
+        // console.log("i've been clicked");
         $("#hintImg").removeClass("invisible");
     } else if (event.target.id === "cameraID") {
-        console.log("clicked the camera ID");
+        // console.log("clicked the camera ID");
         html.imageUpload();
         $("#uploader").change(() => imgUpload.previewFile(this.files));
     } else if (event.target.id === "save") {
 
+        console.log("you clicked save");
+
         let url = $("#theuploaded").attr('src');
         let currentUser = user.getUserObj();
-        let id = FBid;
-        let photoObj = { id: url };
+        let place = num;
+        let photoid = makeID();
+        let photoObj;
 
-        console.log("URLLLLL", url);
+        if (photoid === "id_0"){
+            photoObj = { id_0: url };
+        } else if (photoid === "id_1"){
+            photoObj = { id_1: url };
+        } else if (photoid === "id_2"){
+            photoObj = { id_2: url };
+        } else if (photoid === "id_3"){
+            photoObj = { id_3: url };
+        } else if (photoid === "id_4") {
+            photoObj = { id_4: url };
+        } else if (photoid === "id_5") {
+            photoObj = { id_5: url };
+        } else if (photoid === "id_6") {
+            photoObj = { id_6: url };
+        } else if (photoid === "id_7") {
+            photoObj = { id_7: url };
+        } else if (photoid === "id_8") {
+            photoObj = { id_8: url };
+        } else if (photoid === "id_9") {
+            photoObj = { id_9: url };
+        } else if (photoid === "id_10") {
+            photoObj = { id_10: url };
+        } else if (photoid === "id_11") {
+            photoObj = { id_11: url };
+        }
 
+        console.log("photoObj", photoObj);
+        // console.log("FB upload key", currentUser.fbID);
+        
         db.addFBkey(photoObj, currentUser.fbID).then(() => {
-            db.getFBDetails(currentUser.uid).then((user) => {
-                let keys = Object.keys(user);
-                let userKey = keys.shift();
+                console.log("we got here");
                 printDiv.empty('');
-                game.playISpy(questions.questionArray);
-            });
+            game.playLast(questions.questionArray[place]);
+            $("#hintImg").removeClass("invisible");
+            $("#userUpload").attr('src', url);
+            $("#userUpload").removeClass("invisible");
         });
     } else if (event.target.id === "after"){
         let currentUser = user.getUserObj();
         db.getFBDetails(currentUser.uid).then((user) => {
             let keys = Object.keys(user);
             let userKey = keys.shift();
-            console.log("keys", user[userKey]);
+            // console.log("keys", user[userKey]);
             
             printDiv.empty('');
-            html.after(user[userKey].displayName, user[userKey].scaryword, user[userKey].q_01);
+            html.after(user[userKey].displayName, user[userKey].scaryword, user[userKey]._01);
         });
     } else if (event.target.id === "after-back"){
         let currentUser = user.getUserObj();

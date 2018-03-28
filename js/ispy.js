@@ -23,13 +23,22 @@ function playISpy(array){
     }
 }
 
+function playLast(position){
+    let color = randColor(colorList);
+    let question = position.q;
+    let hintImg = position.hint;
+    let nextID = position.id;
+
+    html.ispyMain(color, question, hintImg, nextID);
+}
+
 
 function randColor(colors) {
     var choice = Math.floor(Math.random() * colors.length);
     return colors[choice];
 }
 
-module.exports = {playISpy};
+module.exports = { playISpy, colorList, randColor, playLast};
 
 
 // color, questionText, hintID, qImage, questionNext

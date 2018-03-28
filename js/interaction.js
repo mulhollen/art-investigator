@@ -137,6 +137,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
     } else if (event.target.id === "cameraID") {
         // console.log("clicked the camera ID");
         html.imageUpload();
+        $("#save").prop("disabled", true);
         $("#uploader").change(() => imgUpload.previewFile(this.files));
     } else if (event.target.id === "save") {
 
@@ -185,6 +186,9 @@ document.querySelector('#main').addEventListener('click', (event) => {
             $("#userUpload").attr('src', url);
             $("#userUpload").removeClass("invisible");
         });
+    } else if (event.target.id === "iSpyNext"){
+        printDiv.empty('');
+        game.playISpy(questions.questionArray);
     } else if (event.target.id === "after"){
         let currentUser = user.getUserObj();
         db.getFBDetails(currentUser.uid).then((user) => {

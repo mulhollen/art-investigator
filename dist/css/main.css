@@ -1,0 +1,119 @@
+h1 {
+  font-family: "Space Mono", monospace; }
+
+h2 {
+  font-family: "Didact Gothic", sans-serif; }
+
+h3 {
+  font-family: "Space Mono", monospace; }
+
+h4 {
+  font-family: "Didact Gothic", sans-serif; }
+
+p {
+  font-family: "Didact Gothic", sans-serif; }
+
+a {
+  color: white; }
+
+a:active {
+  color: white; }
+
+.dark-link {
+  font-family: "Didact Gothic", sans-serif; }
+
+.light-link {
+  font-family: "Didact Gothic", sans-serif;
+  color: #707070 !important; }
+
+.circle-link {
+  width: 160px;
+  height: 160px;
+  font-family: "Didact Gothic", sans-serif; }
+
+.circle-button {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  color: black; }
+
+.hole {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%; }
+
+.red {
+  background-color: #FF6464; }
+
+.orange {
+  background-color: #FFB045; }
+
+.yellow {
+  background-color: #FFF145; }
+
+.green {
+  background-color: #96FF55; }
+
+.blue {
+  background-color: #45BFFF; }
+
+.purple {
+  background-color: #F845FF; }
+
+.background-black {
+  background-color: black; }
+
+.background-white {
+  background-color: white; }
+
+.white-text {
+  color: white; }
+
+.round {
+  border: 5px solid black;
+  border-radius: 50%; }
+
+.border-medium-bottom {
+  border-bottom: 3px solid black; }
+
+.border-medium-top {
+  border-top: 3px solid black; }
+
+.square-border {
+  border: 10px solid #FFF145;
+  border-radius: 10px; }
+
+.square-border-black {
+  border: 10px solid black;
+  border-radius: 10px; }
+
+.tall {
+  height: 50vh; }
+
+.full-height {
+  height: 100vh; }
+
+.negative-left {
+  margin-left: -10px; }
+
+.canvas {
+  height: 70vh; }
+
+.q-img {
+  width: 300px;
+  height: 300px; }
+
+.g-img {
+  width: 200px;
+  height: 200px; }
+
+.after-img {
+  width: 150px;
+  height: 150px; }
+
+.disabled {
+  color: #707070;
+  pointer-events: none;
+  cursor: default; }
+
+/*# sourceMappingURL=main.css.map */

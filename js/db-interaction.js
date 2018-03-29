@@ -31,11 +31,11 @@ function addUserFB(userObj) {
         data: JSON.stringify(userObj),
         dataType: 'json'
     }).done((fbID) => {
-      return fbID;
+        return fbID;
     });
 }
 
-function addFBkey(obj, key){
+function addFBkey(obj, key) {
     return $.ajax({
         url: `${firebase.getFBsettings().databaseURL}/user/${key}.json`,
         type: 'PATCH',
@@ -90,13 +90,14 @@ function uploadStorageBucket(file) {
     const metadata = { contentType: file.type };
     const task = ref.child(name).put(file, metadata);
 
-        task.then((snapshot) => {
-            const url = snapshot.downloadURL;
-            console.log(url);
-            document.querySelector('#theuploaded').src = url;
-        }).catch((error) => {
-            console.error(error);
-        });
+    task.then((snapshot) => {
+        const url = snapshot.downloadURL;
+        console.log(url);
+        document.querySelector('#theuploaded').src = url;
+        $("#save").removeClass("disabled");
+    }).catch((error) => {
+        console.error(error);
+    });
 }
 
 module.exports = {

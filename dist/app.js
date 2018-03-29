@@ -556,24 +556,24 @@ document.querySelector('#main').addEventListener('click', (event) => {
     if (event.target.id === "login") {
         // console.log("login", event.target.id);
         db.logInGoogle()
-        .then((result) => {
-            // console.log("result from login", result.user);
-            user.setUser(result.user.uid);
-            user.checkUserFB(result.user);
-            printDiv.empty('');
+            .then((result) => {
+                // console.log("result from login", result.user);
+                user.setUser(result.user.uid);
+                user.checkUserFB(result.user);
+                printDiv.empty('');
 
-            db.getFBDetails(result.user.uid).then((user) => {
-                let keys = Object.keys(user);
-                let userKey = keys.shift();
-                html.homePage(user[userKey].displayName);  
+                db.getFBDetails(result.user.uid).then((user) => {
+                    let keys = Object.keys(user);
+                    let userKey = keys.shift();
+                    html.homePage(user[userKey].displayName);
+                });
             });
-        });
-    } else if (event.target.id === "logout"){
+    } else if (event.target.id === "logout") {
         db.logOut()
-        .then(() => {
-            printDiv.empty('');
-            printJS.appendMain(html.signInPage);
-        });
+            .then(() => {
+                printDiv.empty('');
+                printJS.appendMain(html.signInPage);
+            });
     } else if (event.target.id === "edit-profile") {
         printDiv.empty('');
         let userObj = user.getUserObj();
@@ -582,7 +582,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
         printDiv.empty('');
         let userObj = user.getUserObj();
         html.homePage(userObj.displayName);
-    } else if (event.target.id === "edit-save"){
+    } else if (event.target.id === "edit-save") {
         var inputOne = document.getElementById("username").value;
         var inputTwo = document.getElementById("email").value;
 
@@ -591,9 +591,9 @@ document.querySelector('#main').addEventListener('click', (event) => {
         currentUser.displayName = inputOne;
         currentUser.email = inputTwo;
         currentUser.fbID = currentUser.fbID ? currentUser.fbID : currentUser.fbID.name;
-    
+
         db.updateUserFB(currentUser);
-        
+
         printDiv.empty('');
         html.homePage(inputOne);
     } else if (event.target.id === "before") {
@@ -610,15 +610,15 @@ document.querySelector('#main').addEventListener('click', (event) => {
     } else if (event.target.id === "hole") {
         document.querySelector('#hole').addEventListener('keypress', function (e) {
             var key = e.which || e.keyCode;
-            if (key === 13) { 
+            if (key === 13) {
                 input = document.getElementById("hole").value;
-                
+
                 let currentUser = user.getUserObj();
-                let scaryObj = {scaryword: input};
-                
+                let scaryObj = { scaryword: input };
+
                 printDiv.empty('');
 
-                db.addFBkey(scaryObj, currentUser.fbID).then( () => {
+                db.addFBkey(scaryObj, currentUser.fbID).then(() => {
                     db.getFBDetails(currentUser.uid).then((user) => {
                         let keys = Object.keys(user);
                         let userKey = keys.shift();
@@ -652,7 +652,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
         printDiv.empty('');
         // there's an error happening here
         game.playISpy(questions.questionArray);
-    } else if (event.target.id === "questionBack" ){
+    } else if (event.target.id === "questionBack") {
         printDiv.empty('');
         printJS.appendMain(html.ispyInstructionsPage);
     } else if (event.target.id === "hintId") {
@@ -673,13 +673,13 @@ document.querySelector('#main').addEventListener('click', (event) => {
         let photoid = makeID();
         let photoObj;
 
-        if (photoid === "id_0"){
+        if (photoid === "id_0") {
             photoObj = { id_0: url };
-        } else if (photoid === "id_1"){
+        } else if (photoid === "id_1") {
             photoObj = { id_1: url };
-        } else if (photoid === "id_2"){
+        } else if (photoid === "id_2") {
             photoObj = { id_2: url };
-        } else if (photoid === "id_3"){
+        } else if (photoid === "id_3") {
             photoObj = { id_3: url };
         } else if (photoid === "id_4") {
             photoObj = { id_4: url };
@@ -699,37 +699,45 @@ document.querySelector('#main').addEventListener('click', (event) => {
             photoObj = { id_11: url };
         }
 
-        console.log("photoObj", photoObj);
+        // console.log("photoObj", photoObj);
         // console.log("FB upload key", currentUser.fbID);
-        
+
         db.addFBkey(photoObj, currentUser.fbID).then(() => {
-                console.log("we got here");
-                printDiv.empty('');
+            console.log("we got here");
+            printDiv.empty('');
             game.playLast(questions.questionArray[place]);
+            $("#iSpyNext").removeClass("invisible");
             $("#hintImg").removeClass("invisible");
             $("#userUpload").attr('src', url);
             $("#userUpload").removeClass("invisible");
         });
-    } else if (event.target.id === "iSpyNext"){
-        printDiv.empty('');
-        game.playISpy(questions.questionArray);
-    } else if (event.target.id === "after"){
+    } else if (event.target.id === "iSpyNext") {
+        if (num === 11) {
+            printDiv.empty('');
+            let userObj = user.getUserObj();
+            html.homePage(userObj.displayName);
+        } else {
+            $("#iSpyNext").addClass("invisible");
+            game.playISpy(questions.questionArray);
+        }
+    } else if (event.target.id === "after") {
         let currentUser = user.getUserObj();
         db.getFBDetails(currentUser.uid).then((user) => {
             let keys = Object.keys(user);
             let userKey = keys.shift();
             // console.log("keys", user[userKey]);
-            
+
             printDiv.empty('');
-            html.after(user[userKey].displayName, user[userKey].scaryword, user[userKey]._01);
+            html.after(user[userKey].displayName, user[userKey].scaryword, user[userKey]);
+            console.log("user key", user[userKey]);
         });
-    } else if (event.target.id === "after-back"){
+    } else if (event.target.id === "after-back") {
         let currentUser = user.getUserObj();
         printDiv.empty('');
         html.homePage(currentUser.displayName);
     }
 });
- 
+
 
 },{"../lib/node_modules/jquery":18,"./db-interaction":1,"./html-cont":4,"./img-upload":5,"./ispy":7,"./print":9,"./questions":10,"./user":11}],7:[function(require,module,exports){
 "use strict";

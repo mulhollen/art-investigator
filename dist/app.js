@@ -558,10 +558,9 @@ function previewFile(fileUpload) {
 
     console.log("making it to uploadStorageBucket");
     db.uploadStorageBucket(file);
-    $("#save").removeClass("disabled");
 }
 
-module.exports = {previewFile};
+module.exports = { previewFile };
 },{"../lib/node_modules/jquery":18,"./db-interaction":1}],6:[function(require,module,exports){
 "use strict";
 

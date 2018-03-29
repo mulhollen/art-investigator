@@ -19,7 +19,7 @@ var questionArray =
         },
         {
             q: "An easter bunny way up high?",
-            hint: "img/hints/q_10.png",
+            hint: "img/hints/q_10.jpeg",
             id: "q_04"
         },
         {

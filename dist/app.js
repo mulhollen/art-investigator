@@ -166,6 +166,7 @@ module.exports = getKey;
 let $ = require('jquery');
 let firebase = require("./fb-config");
 let imgUpload = require("./img-upload");
+let questions = require("./questions");
 
 
 let printDiv = $('#main');
@@ -190,7 +191,7 @@ let signInPage = `<div class="sign-in full-height text-center d-flex flex-column
                         </button>
                     </div>`;
 
-function homePage(username){
+function homePage(username) {
     printDiv.append(
         `<div>
             <div class="mx-3 mt-2 d-flex justify-content-between">
@@ -213,7 +214,7 @@ function homePage(username){
         </div>`);
 }
 
-function editProfilePage(username, email){
+function editProfilePage(username, email) {
     printDiv.append(
         `<div>
             <div class="px-3 my-5 d-flex justify-content-between border-medium-bottom">
@@ -297,7 +298,7 @@ function scaryWordPage(scaryWord) {
         </div>`);
 }
 
-function wordCloudPage() {  
+function wordCloudPage() {
     printDiv.append(`<div>
                         <div class="mx-4 pt-4 d-flex justify-content-between">
                             <a id="word-cloud-back" class="circle-button round d-flex justify-content-center align-items-center">
@@ -372,7 +373,7 @@ let ispyInstructionsPage = `<div class="yellow pb-5 full-height">
                                 </div>
                             </div>`;
 
-function ispyMain(color, questionText, qImage, ID){
+function ispyMain(color, questionText, qImage, ID) {
     printDiv.empty('');
     printDiv.append(
         `<div id="iSpyMain" class="${color} pb-5 full-height">
@@ -387,7 +388,7 @@ function ispyMain(color, questionText, qImage, ID){
             <div class="m-5 p-3 square-border-black rounded background-white">
                 <h1 class="p-3 display-3 text-center">${questionText}</h1>
                 <div class="d-flex justify-content-around mt-4">
-                    <a class="visible display-4" id="hintId">hint</a>
+                    <a id="hintId" class="visible display-4">hint</a>
                     <a id="cameraID" class="display-4">camera</a>
                 </div>
             </div>
@@ -396,14 +397,14 @@ function ispyMain(color, questionText, qImage, ID){
                 <img id="userUpload" class="invisible q-img square-border-black" src="${userUpload}">
             </div>
             <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end">
-                <a id="iSpyNext" class="circle-button round d-flex justify-content-center align-items-center">
+                <a id="iSpyNext" class="invisible circle-button round d-flex justify-content-center align-items-center">
                     <i class="fas fa-angle-right fa-2x"></i>
                 </a>
             </div>
         </div>`);
-    }
+}
 
-function imageUpload(){
+function imageUpload() {
     printDiv.empty('');
     printDiv.append(
         `<div class="green pb-5 full-height">
@@ -427,7 +428,8 @@ function imageUpload(){
                 </div>
             </div>
         </div>`
-    );}
+    );
+}
 
 let ispyGallery = `<div class="${color} pb-5 full-height">
                         <div class="mx-4 pt-4 d-flex justify-content-between">
@@ -457,7 +459,10 @@ let ispyGallery = `<div class="${color} pb-5 full-height">
 
 let ispyGalleryUpload = `<img class="g-img square-border-black m-4" src="${galleryUpload}">`;
 
-function after(username, scaryWord, imgsrc){
+function after(username, scaryWord, img) {
+    console.log(img);
+    console.log("img.id_0", img.id_0);
+
     printDiv.append(
         `<div>
                 <div class="mx-4 pt-4">
@@ -471,29 +476,65 @@ function after(username, scaryWord, imgsrc){
                     <h2>You learned that <i>${scaryWord}</i> is something that you can conquer!</h2>
                     <br>
                     <h3>Here are some pictures you took:</h3>
-                    <div class="mt-5 mx-5 d-flex justify-content-around">
-                        <img class="square-border-black q-img" src="${imgsrc}">
-                    </div>
+                    <div id="afterImg" class="mt-5 mx-5 d-flex justify-content-around flex-column">
+                    <div>
                 </div>
             </div>`);
+
+    if (img.id_0 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[0].q}</h2><img class="square-border-black q-img" src="${img.id_0}">`);
+    }
+    if (img.id_1 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[1].q}</h2><img class="square-border-black q-img" src="${img.id_1}">`);
+    }
+    if (img.id_2 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[2].q}</h2><img class="square-border-black q-img" src="${img.id_2}">`);
+    }
+    if (img.id_3 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[3].q}</h2><img class="square-border-black q-img" src="${img.id_3}">`);
+    }
+    if (img.id_4 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[4].q}</h2><img class="square-border-black q-img" src="${img.id_4}">`);
+    }
+    if (img.id_5 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[5].q}</h2><img class="square-border-black q-img" src="${img.id_5}">`);
+    }
+    if (img.id_6 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[6].q}</h2><img class="square-border-black q-img" src="${img.id_6}">`);
+    }
+    if (img.id_7 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[7].q}</h2><img class="square-border-black q-img" src="${img.id_7}">`);
+    }
+    if (img.id_8 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[8].q}</h2><img class="square-border-black q-img" src="${img.id_8}">`);
+    }
+    if (img.id_9 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[9].q}</h2><img class="square-border-black q-img" src="${img.id_9}">`);
+    }
+    if (img.id_10 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[10].q}</h2><img class="square-border-black q-img" src="${img.id_10}">`);
+    }
+    if (img.id_11 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[11].q}</h2><img class="square-border-black q-img" src="${img.id_11}">`);
+    }
 }
 
-module.exports = { 
-                signInPage, 
-                homePage, 
-                editProfilePage, 
-                vulnerablePage, 
-                scaryWordPage, 
-                wordCloudPage, 
-                armorPage, 
-                ispyInstructionsPage, 
-                ispyMain,
-                ispyGallery,
-                ispyGalleryUpload,
-                imageUpload,
-                after 
-                };
-},{"./fb-config":2,"./img-upload":5,"jquery":18}],5:[function(require,module,exports){
+module.exports = {
+    signInPage,
+    homePage,
+    editProfilePage,
+    vulnerablePage,
+    scaryWordPage,
+    wordCloudPage,
+    armorPage,
+    ispyInstructionsPage,
+    ispyMain,
+    ispyGallery,
+    ispyGalleryUpload,
+    imageUpload,
+    after
+};
+},{"./fb-config":2,"./img-upload":5,"./questions":10,"jquery":18}],5:[function(require,module,exports){
 "use strict";
 let $ = require('../lib/node_modules/jquery');
 let db = require("./db-interaction");
@@ -867,7 +908,7 @@ var questionArray =
         },
         {
             q: "An easter bunny way up high?",
-            hint: "img/hints/q_10.png",
+            hint: "img/hints/q_10.jpeg",
             id: "q_04"
         },
         {

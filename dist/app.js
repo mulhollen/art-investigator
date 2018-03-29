@@ -311,11 +311,6 @@ function wordCloudPage() {
                         </div>
                         <div class="canvas"></div>
                             <script>
-                            d3.wordcloud()
-                                .size([800, 400])
-                                .selector('#canvas')
-                                .words([{text: 'word', size: 5}, {text: 'cloud', size: 15}])
-                                .start();
                             </script>
                         <div class="background-black">
                             <div class="yellow p-5">
@@ -673,7 +668,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
         printJS.appendMain(html.vulnerablePage);
     } else if (event.target.id === "next-scary-word") {
         printDiv.empty('');
-        html.wordCloudPage();
+        printJS.appendMain(html.armorPage);
     } else if (event.target.id === "word-cloud-back") {
         printDiv.empty('');
         html.scaryWordPage();
@@ -682,7 +677,13 @@ document.querySelector('#main').addEventListener('click', (event) => {
         printJS.appendMain(html.armorPage);
     } else if (event.target.id === "armor-back") {
         printDiv.empty('');
-        html.wordCloudPage();
+        // html.wordCloudPage();
+        let currentUser = user.getUserObj();
+        db.getFBDetails(currentUser.uid).then((user) => {
+            let keys = Object.keys(user);
+            let userKey = keys.shift();
+            html.scaryWordPage(user[userKey].scaryword);
+        });
     } else if (event.target.id === "during") {
         printDiv.empty('');
         printJS.appendMain(html.ispyInstructionsPage);

@@ -4,7 +4,6 @@ let $ = require('jquery');
 let firebase = require("./fb-config");
 let imgUpload = require("./img-upload");
 let questions = require("./questions");
-let d3 = require("./d3.wordcloud");
 
 
 let printDiv = $('#main');
@@ -148,11 +147,6 @@ function wordCloudPage() {
                         </div>
                         <div class="canvas"></div>
                             <script>
-                            d3.wordcloud()
-                                .size([800, 400])
-                                .selector('#canvas')
-                                .words([{text: 'word', size: 5}, {text: 'cloud', size: 15}])
-                                .start();
                             </script>
                         <div class="background-black">
                             <div class="yellow p-5">

@@ -4,6 +4,7 @@ let $ = require('jquery');
 let firebase = require("./fb-config");
 let imgUpload = require("./img-upload");
 let questions = require("./questions");
+let d3 = require("./d3.wordcloud");
 
 
 let printDiv = $('#main');

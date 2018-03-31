@@ -34,7 +34,7 @@ var questionArray =
         },
         {
             q: "Some rainbow waves?",
-            hint: "img/hints/q_08.png",
+            hint: "img/hints/q_09.png",
             id: "q_07"
         },
         {

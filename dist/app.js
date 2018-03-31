@@ -210,17 +210,35 @@ function homePage(username) {
                 </div>
             </div>
             <div class="mx-3 fixed-bottom d-flex justify-content-end">
-                <button type="button" id="helpBtn" class="light-link h4 mt-auto p-2" data-toggle="modal" data-target="#myModal">help!</button>
-                    <script>
-                        $('.helpBtn').on('click',function(){
-                            $('.modal-body').load('../help.html',function(){
-                            $('#myModal').modal({show:true});
-                            });
-                        });
-                    </script>
+            <a class="light-link h3 mt-auto p-2" data-popup-open="popup-1" href="#">help!</a>
+            <div class="popup" data-popup="popup-1">
+                <div class="popup-inner">
+                    <h3>Select "before you enter" if it's your first time visting the exhibit.<br><br>If you would like to get straight into gameplay select "during your visit".<br><br>View "at the end of your visit" if you'd like to see what you did on your visit!</h3>
+
+                    <p><a data-popup-close="popup-1" href="#">Close</a></p>
+                    <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+                </div>
             </div>
+                <script>
+                    $(function() {
+                        //----- OPEN
+                        $('[data-popup-open]').on('click', function(e)  {
+                        var targeted_popup_class = jQuery(this).attr('data-popup-open');
+                        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+                        e.preventDefault();
+                        });
+                        //----- CLOSE
+                        $('[data-popup-close]').on('click', function(e)  {
+                        var targeted_popup_class = jQuery(this).attr('data-popup-close');
+                        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+                        e.preventDefault();
+                        });
+                    });
+                </script>
+                </div>
         </div>`);
 }
+
 
 function editProfilePage(username, email) {
     printDiv.append(
@@ -258,7 +276,7 @@ let vulnerablePage = `<div class="background-black pb-5">
                             </div>
                             <div class="m-5 p-4 square-border rounded">
                                 <h2 class="display-4 white-text">Do you know what it means to feel</h2>
-                                <h1 class="display-3 white-text"><u>vulnerable</u>?</h1>
+                                <a data-popup-open="popup-2"><h1 class="display-3 white-text"><u>vulnerable</u>?</h1></a>
                             </div>
                             <div class="tall d-flex align-items-end justify-content-center">
                                 <a href="#page-2"><i class="fas fa-angle-down fa-5x"></i></a>
@@ -279,7 +297,31 @@ let vulnerablePage = `<div class="background-black pb-5">
                                 </div>
                             </div>
                         </div>
-                    </div>`;
+                    </div>
+                    <div class="popup" data-popup="popup-2">
+                        <div class="popup-inner">
+                            <h2>vul·ner·a·ble</h2><h3>Open to being wounded or hurt either emotionally or physically.</h3>
+
+                            <p><a data-popup-close="popup-2" href="#">Close</a></p>
+                            <a class="popup-close" data-popup-close="popup-2" href="#">x</a>
+                        </div>
+                    </div>
+                    <script>
+                        $(function() {
+                            //----- OPEN
+                            $('[data-popup-open]').on('click', function(e)  {
+                            var targeted_popup_class = jQuery(this).attr('data-popup-open');
+                            $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+                            e.preventDefault();
+                            });
+                            //----- CLOSE
+                            $('[data-popup-close]').on('click', function(e)  {
+                            var targeted_popup_class = jQuery(this).attr('data-popup-close');
+                            $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+                            e.preventDefault();
+                            });
+                        });
+                    </script>`;
 
 function scaryWordPage(scaryWord) {
     printDiv.append(
@@ -302,8 +344,8 @@ function scaryWordPage(scaryWord) {
                     <div class="green mx-5 p-4">
                         <h2>That’s really scary! Did you know everyone is scared of something? Let’s take a look…</h2>
                         <div class=" green mx-3 d-flex justify-content-end">
-                            <a id="next-scary-word" class="circle-button round d-flex justify-content-center align-items-center">
-                                <i class="fas fa-angle-right fa-2x"></i>
+                            <a class="circle-button round d-flex justify-content-center align-items-center">
+                                <i id="next-scary-word" class="fas fa-angle-right fa-2x"></i>
                             </a>
                     </div>
                 </div>
@@ -356,8 +398,8 @@ let armorPage = `<div class="full-height background-black pb-5">
                     <div class="mt-5 mr-0 ml-5 pl-5 pr-4 yellow rounded-left">
                         <h2 class="px-5 pt-3">let's go see the exhibit!</h2>
                         <div class="mx-3 pb-3 d-flex justify-content-end">
-                            <a id="during" class="circle-button round d-flex justify-content-center align-items-center">
-                                <i class="fas fa-angle-right fa-2x"></i>
+                            <a class="circle-button round d-flex justify-content-center align-items-center">
+                                <i id="during" class="fas fa-angle-right fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -374,10 +416,10 @@ let ispyInstructionsPage = `<div class="yellow pb-5 full-height-100">
                                 </div>
                                 <div class="m-5 p-3 square-border-black rounded">
                                     <h1 class="p-3 display-3 text-center">Can you find?</h1>
-                                    <h2 class="p-3">Instrustions will be here. This will tell the user how to play hide and seak. Instrustions will be here. This will tell the user how to play hide and seak. Instrustions will be here. This will tell the user how to play hide and seak.</h2>
+                                    <h2 class="p-3">Use your detective skills to search though the exhibit for hidden surprises in Nick Cave's art. If you need a hint in your searching, click the hint button. Once you find the object take a picture and see how you did!</h2>
                                 </div>
                                 <div class="d-flex justify-content-center m-5">
-                                    <a id="ispy-letsgo" class="square-border-black background-white p-3"><h1>let's go!</h1></a>
+                                    <a class="square-border-black background-white p-3"><h1 id="ispy-letsgo" class="d-inline-block">let's go!</h1></a>
                                 </div>
                             </div>`;
 
@@ -386,10 +428,10 @@ function ispyMain(color, questionText, qImage, ID) {
     printDiv.append(
         `<div id="iSpyMain" class="${color} pb-5 full-height">
             <div class="mx-4 pt-4 d-flex justify-content-between">
-                <a id="questionBack" class="circle-button round d-flex justify-content-center align-items-center">
+                <a id="questionBack" class="d-inline-block invisible circle-button round d-flex justify-content-center align-items-center">
                     <i class="fas fa-angle-left fa-2x"></i>
                 </a>
-                <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
+                <a id="home" class="d-inline-block circle-button round d-flex justify-content-center align-items-center">
                     <i class="fas fa-home fa-lg"></i>
                 </a>
             </div>
@@ -405,11 +447,19 @@ function ispyMain(color, questionText, qImage, ID) {
                 <img id="userUpload" class="invisible q-img square-border-black" src="${userUpload}">
             </div>
             <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end">
-                <a id="iSpyNext" class="invisible circle-button round d-flex justify-content-center align-items-center">
+                <a id="iSpyNext" data-popup-open="popup-3" class="invisible circle-button round d-flex justify-content-center align-items-center">
                     <i class="fas fa-angle-right fa-2x"></i>
                 </a>
             </div>
-        </div>`);
+        </div>
+        <div class="popup" data-popup="popup-3">
+                <div class="popup-inner">
+                    <h3 class="text-center">You found them all!</h3><br><h3>Click the home button to see all you've acomplished!</h3>
+
+                    <p><a data-popup-close="popup-3" href="#">Close</a></p>
+                    <a class="popup-close" data-popup-close="popup-3" href="#">x</a>
+                </div>
+            </div>`);
 }
 
 function imageUpload() {
@@ -430,7 +480,7 @@ function imageUpload() {
                 </div>
                 <div class="mx-3 mb-3 d-flex justify-content-end">
                     <a class="circle-button round d-flex justify-content-center align-items-center">
-                        <i id ="save" class="fas fa-check fa-lg"></i>
+                        <i id ="save" class="d-inline-block fas fa-check fa-lg"></i>
                     </a>
                 </div>
             </div>
@@ -767,9 +817,20 @@ document.querySelector('#main').addEventListener('click', (event) => {
         });
     } else if (event.target.id === "iSpyNext") {
         if (num === 11) {
-            printDiv.empty('');
-            let userObj = user.getUserObj();
-            html.homePage(userObj.displayName);
+            $(function () {
+                //----- OPEN
+                $('[data-popup-open]').on('click', function (e) {
+                    var targeted_popup_class = $(this).attr('data-popup-open');
+                    $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+                    e.preventDefault();
+                });
+                //----- CLOSE
+                $('[data-popup-close]').on('click', function (e) {
+                    var targeted_popup_class = $(this).attr('data-popup-close');
+                    $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+                    e.preventDefault();
+                });
+            });
         } else {
             $("#iSpyNext").addClass("invisible");
             game.playISpy(questions.questionArray);
@@ -936,7 +997,7 @@ var questionArray =
         },
         {
             q: "Some rainbow waves?",
-            hint: "img/hints/q_08.png",
+            hint: "img/hints/q_09.png",
             id: "q_07"
         },
         {

@@ -196,9 +196,20 @@ document.querySelector('#main').addEventListener('click', (event) => {
         });
     } else if (event.target.id === "iSpyNext") {
         if (num === 11) {
-            printDiv.empty('');
-            let userObj = user.getUserObj();
-            html.homePage(userObj.displayName);
+            $(function () {
+                //----- OPEN
+                $('[data-popup-open]').on('click', function (e) {
+                    var targeted_popup_class = $(this).attr('data-popup-open');
+                    $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+                    e.preventDefault();
+                });
+                //----- CLOSE
+                $('[data-popup-close]').on('click', function (e) {
+                    var targeted_popup_class = $(this).attr('data-popup-close');
+                    $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+                    e.preventDefault();
+                });
+            });
         } else {
             $("#iSpyNext").addClass("invisible");
             game.playISpy(questions.questionArray);

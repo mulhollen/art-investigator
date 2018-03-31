@@ -91,7 +91,10 @@ a:visited {
   border-radius: 10px; }
 
 .tall {
-  height: 50%; }
+  height: 15%; }
+
+.tall-15 {
+  height: 15%; }
 
 .full-height {
   height: 100vh; }

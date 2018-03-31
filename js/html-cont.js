@@ -301,10 +301,11 @@ function ispyMain(color, questionText, qImage, ID) {
 function imageUpload() {
     printDiv.append(
         `<div class="green pb-5 full-height-100">
+            <div class="tall-15"></div>
             <div class="background-white p-4 square-border-black">
                 <div class="mx-4 pt-4 d-flex justify-content-between">
-                    <a id="cancelUpload" class="circle-button round d-flex justify-content-center align-items-center">
-                        <i class="fas fa-times fa-lg"></i>
+                    <a class="circle-button round d-flex justify-content-center align-items-center">
+                        <i id="cancelUpload" class="d-inline-block fas fa-times fa-lg"></i>
                     </a>
                 </div>
                 <div class="mt-4 d-flex justify-content-center align-items-center flex-column">

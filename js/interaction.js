@@ -194,6 +194,9 @@ document.querySelector('#main').addEventListener('click', (event) => {
             $("#userUpload").attr('src', url);
             $("#userUpload").removeClass("invisible");
         });
+    } else if (event.target.id === "cancelUpload"){
+        let place = num;
+        game.playLast(questions.questionArray[place]);
     } else if (event.target.id === "iSpyNext") {
         if (num === 11) {
             $(function () {

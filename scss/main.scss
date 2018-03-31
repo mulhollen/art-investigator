@@ -127,10 +127,14 @@ a:active {
 }
 
 .tall {
-    height: 50vh;
+    height: 50%;
 }
 
 .full-height {
+    height: 100vh;
+}
+
+.full-height-100 {
     height: 100vh;
 }
 
@@ -182,4 +186,27 @@ a:active {
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@media only screen and (max-width: 600px) {
+    .full-height {
+        height: 300vh;
+    }
+    .phone-col {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 5px 0 5px 0;
+    }
+    .display-3,
+    .display-4 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1rem;
+    }
+    .canvas {
+        height: 50vh;
+    }
 }

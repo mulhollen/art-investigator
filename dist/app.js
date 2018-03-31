@@ -185,7 +185,7 @@ let userUpload;
 let questionNext;
 let galleryUpload;
 
-let signInPage = `<div class="sign-in full-height text-center d-flex flex-column justify-content-center">    
+let signInPage = `<div class="sign-in full-height-100 text-center d-flex flex-column justify-content-center">    
                         <h3>Sign in with:</h3>    
                         <a class="d-inline-block">
                             <img id="login" class="round" src="img/sign-in/google-logo.png">
@@ -200,17 +200,24 @@ function homePage(username) {
                 <a class="light-link h4" id="edit-profile">edit profile</a>
             </div>
             <div class="text-center">
-                <img class="round mt-5 center-block" src="img/avatar/gator.jpg">
+                <img class="round my-5 center-block w-50" src="img/avatar/Art-Investigator-300.png">
                 <h1 class="display-3 mt-2">Hi, ${username}!</h1>
                 <h1 class="display-5">Ready to investigate?</h1>
-                <div class="mt-5 mx-5 d-flex justify-content-around">
+                <div class="mt-5 mx-5 d-flex justify-content-around phone-col">
                     <a class="round p-3 circle-link h4 green d-flex align-items-center" id="before">before you enter</a>
                     <a class="round p-3 circle-link h4 yellow d-flex align-items-center" id="during">during the exhibit</a>
                     <a class="round p-3 circle-link h4 red d-flex align-items-center" id="after">at the end<br>of your visit</a>
                 </div>
             </div>
             <div class="mx-3 fixed-bottom d-flex justify-content-end">
-                <a class="light-link h4 mt-auto p-2" id="help">help!</a>
+                <button type="button" id="helpBtn" class="light-link h4 mt-auto p-2" data-toggle="modal" data-target="#myModal">help!</button>
+                    <script>
+                        $('.helpBtn').on('click',function(){
+                            $('.modal-body').load('../help.html',function(){
+                            $('#myModal').modal({show:true});
+                            });
+                        });
+                    </script>
             </div>
         </div>`);
 }
@@ -223,9 +230,8 @@ function editProfilePage(username, email) {
                 <a class="dark-link h3" id="edit-save">save</a>
             </div>
             <div class="text-center">
-                <img class="round mt-5 center-block" id="change-avatar" src="img/avatar/gator.jpg">
+                <img class="round my-5 center-block w-50" id="change-avatar" src="img/avatar/Art-Investigator-300.png">
                 <br>
-                <a class="dark-link h3 mt-3" id="change-avatar">change avatar</a>
                 <div class="mt-5 mx-5 border-medium-top">
                     <div class="d-flex flex-row justify-content-center py-4 border-medium-bottom">
                         <span class="h3">username:</span>
@@ -240,7 +246,8 @@ function editProfilePage(username, email) {
         </div>`);
 }
 
-let vulnerablePage = ` <div class="background-black pb-5">
+let vulnerablePage = `<div class="background-black pb-5">
+                        <div class="full-height-100">
                             <div class="mx-4 pt-4 d-flex justify-content-between">
                                 <a id="vulnerable-back" class="circle-button round d-flex justify-content-center align-items-center">
                                     <i class="fas fa-angle-left fa-2x"></i>
@@ -256,6 +263,8 @@ let vulnerablePage = ` <div class="background-black pb-5">
                             <div class="tall d-flex align-items-end justify-content-center">
                                 <a href="#page-2"><i class="fas fa-angle-down fa-5x"></i></a>
                             </div>
+                        </div>
+                        <div class="background-black tall">
                             <div id="page-2" class="mt-5 mr-0 ml-5 pl-5 pr-4 yellow rounded-left">
                                 <h2>The artist, Nick Cave, was feeling alone. He felt like people didn’t like him or care about him. He was scared. He felt</h2>
                                 <h1>vulnerable.</h1>
@@ -269,31 +278,34 @@ let vulnerablePage = ` <div class="background-black pb-5">
                                     <input id="hole" type="text" class="form-control m-3 background-black p-3 d-flex align-items-center">
                                 </div>
                             </div>
-                        </div>`;
+                        </div>
+                    </div>`;
 
 function scaryWordPage(scaryWord) {
     printDiv.append(
-        `<div class="background-black pb-5">
-            <div class="mx-4 pt-4 d-flex justify-content-between">
-                <a id="scary-word-back" class="circle-button round d-flex justify-content-center align-items-center">
-                    <i class="fas fa-angle-left fa-2x"></i>
-                </a>
-                <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
-                    <i class="fas fa-home fa-lg"></i>
-                </a>
-            </div>
-            <div class="canvas d-flex justify-content-center">
-                <div id="canvas" class="align-self-center">
-                    <h1 class="display-4 white-text shake">${scaryWord}</h1>
+        `<div class="full-height-100 background-black">
+            <div class="background-black pb-5">
+                <div class="mx-4 pt-4 d-flex justify-content-between">
+                    <a id="scary-word-back" class="circle-button round d-flex justify-content-center align-items-center">
+                        <i class="fas fa-angle-left fa-2x"></i>
+                    </a>
+                    <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
+                        <i class="fas fa-home fa-lg"></i>
+                    </a>
                 </div>
-            </div>
-            <div class="background-black">
-                <div class="green mx-5 p-4">
-                    <h2>That’s really scary! Did you know everyone is scared of something? Let’s take a look…</h2>
-                    <div class=" green mx-3 d-flex justify-content-end">
-                        <a id="next-scary-word" class="circle-button round d-flex justify-content-center align-items-center">
-                            <i class="fas fa-angle-right fa-2x"></i>
-                        </a>
+                <div class="canvas d-flex justify-content-center">
+                    <div id="canvas" class="align-self-center">
+                        <h1 class="display-2 white-text shake">${scaryWord}</h1>
+                    </div>
+                </div>
+                <div class="background-black">
+                    <div class="green mx-5 p-4">
+                        <h2>That’s really scary! Did you know everyone is scared of something? Let’s take a look…</h2>
+                        <div class=" green mx-3 d-flex justify-content-end">
+                            <a id="next-scary-word" class="circle-button round d-flex justify-content-center align-items-center">
+                                <i class="fas fa-angle-right fa-2x"></i>
+                            </a>
+                    </div>
                 </div>
             </div>
         </div>`);
@@ -326,7 +338,7 @@ function wordCloudPage() {
     );
 }
 
-let armorPage = `<div class="background-black pb-5">
+let armorPage = `<div class="full-height background-black pb-5">
                     <div class="mx-4 pt-4 d-flex justify-content-between">
                         <a id="armor-back" class="circle-button round d-flex justify-content-center align-items-center">
                             <i class="fas fa-angle-left fa-2x"></i>
@@ -351,7 +363,7 @@ let armorPage = `<div class="background-black pb-5">
                     </div>
                 </div>`;
 
-let ispyInstructionsPage = `<div class="yellow pb-5 full-height">
+let ispyInstructionsPage = `<div class="yellow pb-5 full-height-100">
                                 <div class="mx-4 pt-4 d-flex justify-content-between">
                                     <a id="ispy-instructions-back" class="invisible circle-button round d-flex justify-content-center align-items-center">
                                         <i class="fas fa-angle-left fa-2x"></i>
@@ -388,7 +400,7 @@ function ispyMain(color, questionText, qImage, ID) {
                     <a id="cameraID" class="display-4">camera</a>
                 </div>
             </div>
-            <div class="d-flex justify-content-around mt-4">
+            <div class="d-flex justify-content-around mt-4 phone-col">
                 <img id="hintImg" class="invisible q-img square-border-black" src="${qImage}">
                 <img id="userUpload" class="invisible q-img square-border-black" src="${userUpload}">
             </div>
@@ -401,10 +413,9 @@ function ispyMain(color, questionText, qImage, ID) {
 }
 
 function imageUpload() {
-    printDiv.empty('');
     printDiv.append(
-        `<div class="green pb-5 full-height">
-            <div class="background-white m-4 square-border-black">
+        `<div class="green pb-5 full-height-100">
+            <div class="background-white p-4 square-border-black">
                 <div class="mx-4 pt-4 d-flex justify-content-between">
                     <a id="cancelUpload" class="circle-button round d-flex justify-content-center align-items-center">
                         <i class="fas fa-times fa-lg"></i>
@@ -702,6 +713,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
         $("#hintImg").removeClass("invisible");
     } else if (event.target.id === "cameraID") {
         // console.log("clicked the camera ID");
+        printDiv.empty('');
         html.imageUpload();
         $("#save").addClass("disabled");
         $("#uploader").change(() => imgUpload.previewFile(this.files));

@@ -142,6 +142,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
         $("#hintImg").removeClass("invisible");
     } else if (event.target.id === "cameraID") {
         // console.log("clicked the camera ID");
+        printDiv.empty('');
         html.imageUpload();
         $("#save").addClass("disabled");
         $("#uploader").change(() => imgUpload.previewFile(this.files));

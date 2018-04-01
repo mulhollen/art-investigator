@@ -21,7 +21,6 @@ function previewFile(fileUpload) {
 
     console.log("making it to uploadStorageBucket");
     db.uploadStorageBucket(file);
-    $("#save").removeClass("disabled");
 }
 
-module.exports = {previewFile};
+module.exports = { previewFile };

@@ -180,6 +180,14 @@ document.querySelector('#main').addEventListener('click', (event) => {
             photoObj = { id_10: url };
         } else if (photoid === "id_11") {
             photoObj = { id_11: url };
+        } else if (photoid === "id_12") {
+            photoObj = { id_12: url };
+        } else if (photoid === "id_13") {
+            photoObj = { id_13: url };
+        } else if (photoid === "id_14") {
+            photoObj = { id_15: url };
+        } else if (photoid === "id_15") {
+            photoObj = { id_15: url };
         }
 
         // console.log("photoObj", photoObj);
@@ -189,16 +197,15 @@ document.querySelector('#main').addEventListener('click', (event) => {
             console.log("we got here");
             printDiv.empty('');
             game.playLast(questions.questionArray[place]);
-            $("#iSpyNext").removeClass("invisible");
-            $("#hintImg").removeClass("invisible");
             $("#userUpload").attr('src', url);
+            $("#iSpyNext").removeClass("invisible");
             $("#userUpload").removeClass("invisible");
         });
     } else if (event.target.id === "cancelUpload"){
         let place = num;
         game.playLast(questions.questionArray[place]);
     } else if (event.target.id === "iSpyNext") {
-        if (num === 11) {
+        if (num === 15) {
             $(function () {
                 //----- OPEN
                 $('[data-popup-open]').on('click', function (e) {
@@ -226,7 +233,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
 
             printDiv.empty('');
             html.after(user[userKey].displayName, user[userKey].scaryword, user[userKey]);
-            console.log("user key", user[userKey]);
+            // console.log("user key", user[userKey]);
         });
     } else if (event.target.id === "after-back") {
         let currentUser = user.getUserObj();

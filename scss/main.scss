@@ -249,23 +249,35 @@ text-decoration:none;
 
 @media only screen and (max-width: 600px) {
     .full-height {
-        height: 300vh;
+        height: 185vh;
     }
     .phone-col {
         display: flex;
         display: -webkit-flex;
         flex-direction: column;
         align-items: center;
-        margin: 5px 0 5px 0;
+        margin: 5px;
     }
     .display-3,
     .display-4 {
         font-size: 2rem;
     }
+    h1 {
+        font-size: 2rem;
+    }
     h2 {
+        font-size: 1rem;
+    }
+    h3 {
         font-size: 1rem;
     }
     .canvas {
         height: 50vh;
+    }
+    .tall-15 {
+        height: 1%;
+    }
+    #userUpload {
+        margin-top: 30px;
     }
 }

@@ -22,7 +22,7 @@ let questionNext;
 let galleryUpload;
 
 let signInPage = `<div class="sign-in full-height-100 text-center d-flex flex-column justify-content-center">    
-                        <h3>Sign in with:</h3>    
+                        <h3>Sign in with Google:</h3>    
                         <a class="d-inline-block">
                             <img id="login" class="round" src="img/sign-in/google-logo.png">
                         </a>
@@ -325,30 +325,43 @@ function imageUpload() {
     );
 }
 
-let ispyGallery = `<div class="${color} pb-5 full-height">
-                        <div class="mx-4 pt-4 d-flex justify-content-between">
-                            <a id="${questionBack}" class="circle-button round d-flex justify-content-center align-items-center">
-                                <i class="fas fa-angle-left fa-2x"></i>
-                            </a>
-                            <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
-                                <i class="fas fa-home fa-lg"></i>
-                            </a>
-                        </div>
-                        <div class="m-5 p-3 square-border-black rounded background-white">
-                            <h1 class="p-3 display-3 text-center">${questionText}</h1>
-                            <div class="d-flex justify-content-around mt-4">
-                                <button id="${cameraId}"><i class="fas fa-camera fa-4x"></i></button>
-                            </div>
-                        </div>
-                        <div id="gallery" class="blue d-flex justify-content-around flex-wrap mt-4 pb-5">
-                            
-                        </div>
-                        <div class="blue mx-3 mb-3 fixed-bottom d-flex justify-content-end flex-wrap">
-                            <a id="${questionNext}" class="circle-button round d-flex justify-content-center align-items-center">
-                                <i class="fas fa-angle-right fa-2x"></i>
-                            </a>
-                        </div>
-                    </div>`;
+function ispyGallery(color, questionText, ID) {
+    printDiv.empty('');
+    printDiv.append(
+        `<div class="${color} pb-5 full-height">
+            <div class="mx-4 pt-4 d-flex justify-content-between">
+                <a id="questionBack" class="invisible circle-button round d-flex justify-content-center align-items-center">
+                    <i class="fas fa-angle-left fa-2x"></i>
+                </a>
+                <a id="home" class="d-inline-block circle-button round d-flex justify-content-center align-items-center">
+                    <i class="fas fa-home fa-lg"></i>
+                </a>
+            </div>
+            <div class="m-5 p-3 square-border-black rounded background-white">
+                <h1 class="p-3 display-3 text-center">${questionText}</h1>
+                <div class="d-flex justify-content-around mt-4">
+                    <a id="cameraID" class="display-4">camera</a>
+                </div>
+            </div>
+            <div class="d-flex justify-content-around mt-4 phone-col">
+                <img id="userUpload" class="invisible q-img square-border-black" src="${userUpload}">
+            </div>
+            <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end flex-wrap">
+                <a id="iSpyNext" data-popup-open="popup-3" class="invisible circle-button round d-flex justify-content-center align-items-center">
+                    <i class="fas fa-angle-right fa-2x"></i>
+                </a>
+            </div>
+        </div>
+        <div class="popup" data-popup="popup-3">
+            <div class="popup-inner">
+                <h3 class="text-center">You found them all!</h3><br><h3>Click the home button to see all you've acomplished!</h3>
+
+                <p><a data-popup-close="popup-3" href="#">Close</a></p>
+                <a class="popup-close" data-popup-close="popup-3" href="#">x</a>
+            </div>
+        </div>`
+    );
+}
 
 
 let ispyGalleryUpload = `<img class="g-img square-border-black m-4" src="${galleryUpload}">`;
@@ -365,7 +378,7 @@ function after(username, scaryWord, img) {
                 </a>
                 <div class="text-center">
                     <h1 class="display-3 mt-2">Hi, ${username}!</h1>
-                    <img class="round my-5 center-block after-img" src="img/avatar/gator.jpg">
+                    <img class="round my-5 center-block after-img" src="img/avatar/Art-Investigator-300.png">
                     <h2 class="display-5">Here's some things you did today!</h2>
                     <h2>You learned that <i>${scaryWord}</i> is something that you can conquer!</h2>
                     <br>
@@ -410,6 +423,18 @@ function after(username, scaryWord, img) {
     }
     if (img.id_11 != undefined) {
         $("#afterImg").append(`<h2>${questions.questionArray[11].q}</h2><img class="square-border-black q-img" src="${img.id_11}">`);
+    }
+    if (img.id_12 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[12].q}</h2><img class="square-border-black q-img" src="${img.id_12}">`);
+    } 
+    if (img.id_13 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[13].q}</h2><img class="square-border-black q-img" src="${img.id_13}">`);
+    }
+    if (img.id_14 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[14].q}</h2><img class="square-border-black q-img" src="${img.id_14}">`);
+    }
+    if (img.id_15 != undefined) {
+        $("#afterImg").append(`<h2>${questions.questionArray[15].q}</h2><img class="square-border-black q-img" src="${img.id_15}">`);
     }
 }
 

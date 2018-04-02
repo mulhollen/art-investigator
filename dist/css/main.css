@@ -125,6 +125,10 @@ a:visited {
   pointer-events: none;
   cursor: default; }
 
+.disabled-border {
+  border: 5px solid #707070;
+  border-radius: 50%; }
+
 .shake {
   /* Start the shake animation and make the animation last for 0.5 seconds */
   animation: shake 0.5s;
@@ -206,18 +210,21 @@ a:visited {
 
 @media only screen and (max-width: 600px) {
   .full-height {
-    height: 185vh; }
+    height: 125vh; }
 
   .phone-col {
     display: flex;
     display: -webkit-flex;
     flex-direction: column;
-    align-items: center;
-    margin: 5px; }
+    align-items: center; }
 
   .display-3,
   .display-4 {
     font-size: 2rem; }
+
+  .q-img {
+    width: 200px;
+    height: 200px; }
 
   h1 {
     font-size: 2rem; }

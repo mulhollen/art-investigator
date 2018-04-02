@@ -115,7 +115,7 @@ let vulnerablePage = `<div class="background-black pb-5">
                                 <a data-popup-open="popup-2"><h1 class="display-3 white-text"><u>vulnerable</u>?</h1></a>
                             </div>
                             <div class="tall d-flex align-items-end justify-content-center">
-                                <a href="#page-2"><i class="fas fa-angle-down fa-5x"></i></a>
+                                <a href="#page-2"><i id="scrolldown" class="fas fa-angle-down fa-5x"></i></a>
                             </div>
                         </div>
                         <div class="background-black tall">
@@ -178,10 +178,10 @@ function scaryWordPage(scaryWord) {
                 </div>
                 <div class="background-black">
                     <div class="green mx-5 p-4">
-                        <h2>That’s really scary! Did you know everyone is scared of something? Let’s take a look…</h2>
+                        <h2>That’s really scary! Did you know everyone is scared of something?</h2>
                         <div class=" green mx-3 d-flex justify-content-end">
-                            <a class="circle-button round d-flex justify-content-center align-items-center">
-                                <i id="next-scary-word" class="fas fa-angle-right fa-2x"></i>
+                            <a id="next-scary-word" class="circle-button round d-flex justify-content-center align-items-center">
+                                <i class="fas fa-angle-right fa-2x"></i>
                             </a>
                     </div>
                 </div>
@@ -226,13 +226,10 @@ let armorPage = `<div class="full-height background-black pb-5">
                         </a>
                     </div>
                     <div class="mr-5 mt-5 mb-5 p-3 square-border rounded negative-left">
-                        <h2 class="p-3 white-text">Nick’s fear was being treated differently from the people around him becuase he didn’t look like them, talk like them or
-                        grow up like them. To make himself feel better, Nick started making armor but not the kind knights or soldiers wear.</h2> 
+                        <h2 class="p-3 white-text">Nick’s fear was being treated differently from the people around him because he didn’t look like them, talk like them, or
+                        grow up like them - so Nick did something to face his fear.<br><br>To make himself feel better, Nick started making armor but not the kind knights or soldiers wear.</h2> 
                         <h2 class="p-3 white-text">Nick made his armour with what was around him, things that were discarded, things that made him feel strong.</h2>
                         <h1 class="p-3 display-4 white-text">do you have armor that makes you feel strong?</h1>
-                    </div>
-                    <div class="mt-5 mr-0 ml-5 pl-5 pr-4 yellow rounded-left">
-                        <h2 class="px-5 pt-3">let's go see the exhibit!</h2>
                         <div class="mx-3 pb-3 d-flex justify-content-end">
                             <a class="circle-button round d-flex justify-content-center align-items-center">
                                 <i id="during" class="fas fa-angle-right fa-2x"></i>
@@ -241,7 +238,7 @@ let armorPage = `<div class="full-height background-black pb-5">
                     </div>
                 </div>`;
 
-let ispyInstructionsPage = `<div class="yellow pb-5 full-height-100">
+let ispyInstructionsPage = `<div class="yellow pb-5 full-height">
                                 <div class="mx-4 pt-4 d-flex justify-content-between">
                                     <a id="ispy-instructions-back" class="invisible circle-button round d-flex justify-content-center align-items-center">
                                         <i class="fas fa-angle-left fa-2x"></i>
@@ -252,9 +249,9 @@ let ispyInstructionsPage = `<div class="yellow pb-5 full-height-100">
                                 </div>
                                 <div class="m-5 p-3 square-border-black rounded">
                                     <h1 class="p-3 display-3 text-center">Can you find?</h1>
-                                    <h2 class="p-3">Use your detective skills to search though the exhibit for hidden surprises in Nick Cave's art. If you need a hint in your searching, click the hint button. Once you find the object take a picture and see how you did!</h2>
+                                    <h2 class="p-3">Use your detective skills to search through the exhibit for hidden surprises in Nick Cave's art. If you need a hint in your searching, click the hint button. Once you find the object take a picture and see how you did!</h2>
                                 </div>
-                                <div class="d-flex justify-content-center m-5">
+                                <div class="d-flex justify-content-center p-5">
                                     <a class="square-border-black background-white p-3"><h1 id="ispy-letsgo" class="d-inline-block">let's go!</h1></a>
                                 </div>
                             </div>`;
@@ -278,7 +275,7 @@ function ispyMain(color, questionText, qImage, ID) {
                     <a id="cameraID" class="display-4">camera</a>
                 </div>
             </div>
-            <div class="d-flex justify-content-around mt-4 phone-col">
+            <div class="${color} pb-5 px-5 d-flex justify-content-around mt-4 phone-col">
                 <img id="hintImg" class="invisible q-img square-border-black" src="${qImage}">
                 <img id="userUpload" class="invisible q-img square-border-black" src="${userUpload}">
             </div>
@@ -295,12 +292,12 @@ function ispyMain(color, questionText, qImage, ID) {
                     <p><a data-popup-close="popup-3" href="#">Close</a></p>
                     <a class="popup-close" data-popup-close="popup-3" href="#">x</a>
                 </div>
-            </div>`);
+        </div>`);
 }
 
 function imageUpload() {
     printDiv.append(
-        `<div class="green pb-5 full-height-100">
+        `<div class="green pb-5 full-height">
             <div class="tall-15"></div>
             <div class="background-white p-4 square-border-black">
                 <div class="mx-4 pt-4 d-flex justify-content-between">
@@ -309,15 +306,15 @@ function imageUpload() {
                     </a>
                 </div>
                 <div class="mt-4 d-flex justify-content-center align-items-center flex-column">
-                    <input id="uploader" type="file">
+                    <input id="uploader" class="text-center" type="file">                    
                     <br>
                     <div class="background-white m-4 d-flex justify-content-center align-items-center square-border-black q-img">
                         <img id="theuploaded" src="" height="200" alt="Image preview...">
                     </div>
                 </div>
                 <div class="mx-3 mb-3 d-flex justify-content-end">
-                    <a class="circle-button round d-flex justify-content-center align-items-center">
-                        <i id ="save" class="d-inline-block fas fa-check fa-lg"></i>
+                    <a id="savecircle" class="circle-button round d-flex justify-content-center align-items-center">
+                        <i id="save" class="d-inline-block fas fa-check fa-lg"></i>
                     </a>
                 </div>
             </div>
@@ -367,74 +364,269 @@ function ispyGallery(color, questionText, ID) {
 let ispyGalleryUpload = `<img class="g-img square-border-black m-4" src="${galleryUpload}">`;
 
 function after(username, scaryWord, img) {
-    console.log(img);
-    console.log("img.id_0", img.id_0);
+
 
     printDiv.append(
-        `<div>
+        `<div class="yellow">
                 <div class="mx-4 pt-4">
                 <a id="after-back" class="circle-button round d-flex justify-content-center align-items-center">
                     <i class="fas fa-angle-left fa-2x"></i>
                 </a>
                 <div class="text-center">
-                    <h1 class="display-3 mt-2">Hi, ${username}!</h1>
-                    <img class="round my-5 center-block after-img" src="img/avatar/Art-Investigator-300.png">
-                    <h2 class="display-5">Here's some things you did today!</h2>
-                    <h2>You learned that <i>${scaryWord}</i> is something that you can conquer!</h2>
+                    <div class="m-4 square-border-black rounded background-white">
+                        <h1 class="display-3 mt-2">Hi, ${username}!</h1>
+                        <img class="round my-5 center-block after-img" src="img/avatar/Art-Investigator-300.png">
+                        <h2 class="display-5">Here's some things you did today!</h2>
+                        <h2>You learned that <i>${scaryWord}</i> is something that you can conquer!</h2>
+                    </div>
                     <br>
-                    <h3>Here are some pictures you took:</h3>
-                    <div id="afterImg" class="mt-5 mx-5 d-flex justify-content-around flex-column">
+                    <div class="m-4 square-border-black rounded background-white">
+                        <h3>Here are some pictures you took:</h3>
+                    </div>    
+                    <div id="afterImg" class="mt-5 mx-4 d-flex justify-content-around flex-column">
                     <div>
                 </div>
             </div>`);
 
     if (img.id_0 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[0].q}</h2><img class="square-border-black q-img" src="${img.id_0}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                <div class="row">
+                    <div class="d-flex m-3 align-items-center phone-col">
+                        <div class="col-sm">
+                            <h2>${questions.questionArray[0].q}</h2>
+                        </div>
+                        <div class="col-sm">                        
+                            <img class="square-border-black q-img" src="${img.id_0}"></div>
+                        </div>        
+                    </div>
+                </div>
+            </div>`);
     }
     if (img.id_1 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[1].q}</h2><img class="square-border-black q-img" src="${img.id_1}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                    <div class="row">
+                        <div class="d-flex m-3 align-items-center phone-col">
+                             <div class="col-sm">
+                                <h2>${questions.questionArray[1].q}</h2>
+                            </div> 
+                            <div class="col-sm">
+                                <img class="square-border-black q-img" src="${img.id_1}"></div>
+                            </div>       
+                        </div>
+                    </div>
+                </div>`);    
     }
     if (img.id_2 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[2].q}</h2><img class="square-border-black q-img" src="${img.id_2}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                        <div class="row">
+                            <div class="d-flex m-3 align-items-center phone-col">
+                                <div class="col-sm">
+                                    <h2>${questions.questionArray[2].q}</h2>
+                                </div>
+                                <div class="col-sm">                        
+                                    <img class="square-border-black q-img" src="${img.id_2}"></div>
+                                </div>        
+                            </div>
+                        </div>
+                    </div>`);
     }
     if (img.id_3 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[3].q}</h2><img class="square-border-black q-img" src="${img.id_3}">`);
+        $("#afterImg").append(`
+          <div class="container my-5 p-3 square-border-black rounded background-white">
+                        <div class="row">
+                            <div class="d-flex m-3 align-items-center phone-col">
+                                 <div class="col-sm">
+                                    <h2>${questions.questionArray[3].q}</h2>
+                                </div>
+                                <div class="col-sm">
+                                    <img class="square-border-black q-img" src="${img.id_3}"></div>
+                                </div>       
+                            </div>
+                        </div>
+                    </div>`);
     }
     if (img.id_4 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[4].q}</h2><img class="square-border-black q-img" src="${img.id_4}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                            <div class="row">
+                                <div class="d-flex m-3 align-items-center phone-col">
+                                    <div class="col-sm">
+                                        <h2>${questions.questionArray[4].q}</h2>
+                                    </div>
+                                    <div class="col-sm">                        
+                                        <img class="square-border-black q-img" src="${img.id_4}"></div>
+                                    </div>        
+                                </div>
+                            </div>
+                        </div>`);
     }
     if (img.id_5 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[5].q}</h2><img class="square-border-black q-img" src="${img.id_5}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                <div class="row">
+                    <div class="d-flex m-3 align-items-center phone-col">
+                        <div class="col-sm">
+                            <h2>${questions.questionArray[5].q}</h2>
+                        </div>  
+                        <div class="col-sm">
+                            <img class="square-border-black q-img" src="${img.id_5}"></div>
+                        </div>      
+                    </div>
+                </div>
+            </div>`);
     }
     if (img.id_6 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[6].q}</h2><img class="square-border-black q-img" src="${img.id_6}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                <div class="row">
+                    <div class="d-flex m-3 align-items-center phone-col">
+                        <div class="col-sm">
+                            <h2>${questions.questionArray[6].q}</h2>
+                        </div>
+                        <div class="col-sm">                        
+                            <img class="square-border-black q-img" src="${img.id_6}"></div>
+                        </div>        
+                    </div>
+                </div>
+            </div>`);
     }
     if (img.id_7 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[7].q}</h2><img class="square-border-black q-img" src="${img.id_7}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                <div class="row">
+                    <div class="d-flex m-3 align-items-center phone-col">
+                        <div class="col-sm">
+                            <h2>${questions.questionArray[7].q}</h2>
+                        </div> 
+                        <div class="col-sm">
+                            <img class="square-border-black q-img" src="${img.id_7}"></div>
+                        </div>      
+                    </div>
+                </div>
+            </div>`);
     }
     if (img.id_8 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[8].q}</h2><img class="square-border-black q-img" src="${img.id_8}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                <div class="row">
+                    <div class="d-flex m-3 align-items-center phone-col">
+                        <div class="col-sm">
+                            <h2>${questions.questionArray[8].q}</h2>
+                        </div>
+                        <div class="col-sm">                        
+                            <img class="square-border-black q-img" src="${img.id_8}"></div>
+                        </div>        
+                    </div>
+                </div>
+            </div>`);
     }
     if (img.id_9 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[9].q}</h2><img class="square-border-black q-img" src="${img.id_9}">`);
+        $("#afterImg").append(`
+             <div class="container my-5 p-3 square-border-black rounded background-white">
+                <div class="row">
+                    <div class="d-flex m-3 align-items-center phone-col">
+                        <div class="col-sm">
+                            <h2>${questions.questionArray[9].q}</h2>
+                        </div> 
+                        <div class="col-sm">
+                            <img class="square-border-black q-img" src="${img.id_9}"></div>
+                        </div>      
+                    </div>
+                </div>
+            </div>`);
     }
     if (img.id_10 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[10].q}</h2><img class="square-border-black q-img" src="${img.id_10}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                <div class="row">
+                    <div class="d-flex m-3 align-items-center phone-col">
+                        <div class="col-sm">
+                            <h2>${questions.questionArray[10].q}</h2>
+                        </div>
+                        <div class="col-sm">                        
+                            <img class="square-border-black q-img" src="${img.id_10}"></div>
+                        </div>        
+                    </div>
+                </div>
+            </div>`);
     }
     if (img.id_11 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[11].q}</h2><img class="square-border-black q-img" src="${img.id_11}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                <div class="row">
+                    <div class="d-flex m-3 align-items-center phone-col">
+                        <div class="col-sm">
+                            <h2>${questions.questionArray[11].q}</h2>
+                        </div> 
+                        <div class="col-sm">
+                            <img class="square-border-black q-img" src="${img.id_11}"></div>
+                        </div>      
+                    </div>
+                </div>
+            </div>`);
     }
     if (img.id_12 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[12].q}</h2><img class="square-border-black q-img" src="${img.id_12}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                <div class="row">
+                    <div class="d-flex m-3 align-items-center phone-col">
+                        <div class="col-sm">
+                            <h2>${questions.questionArray[12].q}</h2>
+                        </div>
+                        <div class="col-sm">                        
+                            <img class="square-border-black q-img" src="${img.id_12}"></div>
+                        </div>        
+                    </div>
+                </div>
+            </div>`);
     } 
     if (img.id_13 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[13].q}</h2><img class="square-border-black q-img" src="${img.id_13}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                <div class="row">
+                    <div class="d-flex m-3 align-items-center phone-col">
+                        <div class="col-sm">
+                            <h2>${questions.questionArray[13].q}</h2>
+                        </div> 
+                        <div class="col-sm">
+                            <img class="square-border-black q-img" src="${img.id_13}"></div>
+                        </div>     
+                    </div>
+                </div>
+            </div>`);
     }
     if (img.id_14 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[14].q}</h2><img class="square-border-black q-img" src="${img.id_14}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                <div class="row">
+                    <div class="d-flex m-3 align-items-center phone-col">
+                        <div class="col-sm">
+                            <h2>${questions.questionArray[14].q}</h2>
+                        </div>
+                        <div class="col-sm">                        
+                            <img class="square-border-black q-img" src="${img.id_14}"></div>
+                        </div>        
+                    </div>
+                </div>
+            </div>`);
     }
     if (img.id_15 != undefined) {
-        $("#afterImg").append(`<h2>${questions.questionArray[15].q}</h2><img class="square-border-black q-img" src="${img.id_15}">`);
+        $("#afterImg").append(`
+            <div class="container my-5 p-3 square-border-black rounded background-white">
+                <div class="row">
+                    <div class="d-flex m-3 align-items-center phone-col">
+                        <div class="col-sm">
+                            <h2>${questions.questionArray[15].q}</h2>
+                        </div> 
+                        <div class="col-sm">
+                            <img class="square-border-black q-img" src="${img.id_15}"></div>
+                        </div>    
+                    </div>
+                </div>
+            </div>`);
     }
 }
 

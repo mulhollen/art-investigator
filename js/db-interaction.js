@@ -95,6 +95,8 @@ function uploadStorageBucket(file) {
         console.log(url);
         document.querySelector('#theuploaded').src = url;
         $("#save").removeClass("disabled");
+        $("#savecircle").removeClass("disabled-border");
+
     }).catch((error) => {
         console.error(error);
     });

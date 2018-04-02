@@ -380,7 +380,7 @@ function after(username, scaryWord, img) {
                         <h2>You learned that <i>${scaryWord}</i> is something that you can conquer!</h2>
                     </div>
                     <br>
-                    <div class="m-4 square-border-black rounded background-white">
+                    <div class="m-4
                         <h3>Here are some pictures you took:</h3>
                     </div>    
                     <div id="afterImg" class="mt-5 mx-4 d-flex justify-content-around flex-column">

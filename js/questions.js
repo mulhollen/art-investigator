@@ -4,7 +4,7 @@ var questionArray =
     [
         {
             q: "A Donald Duck figure?",
-            // hint: "img/hints/q_01.png",
+            hint: "img/hints/q_01.png",
             id: "q_01"
         },
         {

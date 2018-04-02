@@ -149,9 +149,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
         $("#save").addClass("disabled");
         $("#savecircle").addClass("disabled-border");
         $("#uploader").change(() => imgUpload.previewFile(this.files));
-    } else if (event.target.id === "save") {
-
-        console.log("you clicked save");
+    } else if (event.target.id === "savecircle") {
 
         let url = $("#theuploaded").attr('src');
         let currentUser = user.getUserObj();

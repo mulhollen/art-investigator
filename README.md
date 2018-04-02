@@ -4,6 +4,8 @@
 
 Art, especially gallery art and museum art, can be hard to digest and alienating for children. The goal of Art Investigator is to make museum art understandable, relatable, and fun for children at an early reading age (7-11 years old). Working with Nick Cave's <i>Feat.</i> exhibit at The Frist Center for the Visual Arts  in Nashville, Tennessee, Art Investigator is an interactive tour through the exhibit that focuses on learning, emotional intelligence, and creating interaction points for parents and their children. 
 
+Learn more about <i>Feat.</i> <a href="http://fristartmuseum.org//calendar/detail/nick-cave">here</a>
+
 <b>Primary Users</b>
 
 My primary users are Evie and Jack, a first grader and third grader respectively,that are interested in art but often feel like they don’t relate to what they are seeing. They enjoy going to museums but feel like they could be more fun and interactive. 
@@ -58,7 +60,7 @@ How might I create an interactive and relatable experience that enables Evie to 
         <li>Sass</li>
         <li>Firebase Storage Bucket</li>
         <li>Bootstrap</li>
-        <li><a href="https://drive.google.com/drive/folders/1NdlC35gE0DVduwrlFMYoaEHncZHyaYX6">XD prototyping</a></li>
+        <li>XD prototyping - <a href="https://drive.google.com/drive/folders/1NdlC35gE0DVduwrlFMYoaEHncZHyaYX6">Click to view protype.</a></li>
         <li>Photoshop Image Creation</li>
     </ul>
 

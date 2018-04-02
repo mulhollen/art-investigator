@@ -346,8 +346,8 @@ function scaryWordPage(scaryWord) {
                     <div class="green mx-5 p-4">
                         <h2>That’s really scary! Did you know everyone is scared of something?</h2>
                         <div class=" green mx-3 d-flex justify-content-end">
-                            <a id="next-scary-word" class="circle-button round d-flex justify-content-center align-items-center">
-                                <i class="fas fa-angle-right fa-2x"></i>
+                            <a class="circle-button round d-flex justify-content-center align-items-center">
+                                <i id="next-scary-word" class="fas fa-angle-right fa-2x"></i>
                             </a>
                     </div>
                 </div>
@@ -446,8 +446,8 @@ function ispyMain(color, questionText, qImage, ID) {
                 <img id="userUpload" class="invisible q-img square-border-black" src="${userUpload}">
             </div>
             <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end">
-                <a id="iSpyNext" data-popup-open="popup-3" class="invisible circle-button round d-flex justify-content-center align-items-center">
-                    <i class="fas fa-angle-right fa-2x"></i>
+                <a data-popup-open="popup-3" class="invisible circle-button round d-flex justify-content-center align-items-center">
+                    <i id="iSpyNext" class="fas fa-angle-right fa-2x"></i>
                 </a>
             </div>
         </div>
@@ -510,8 +510,8 @@ function ispyGallery(color, questionText, ID) {
                 <img id="userUpload" class="invisible q-img square-border-black" src="${userUpload}">
             </div>
             <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end flex-wrap">
-                <a id="iSpyNext" data-popup-open="popup-3" class="invisible circle-button round d-flex justify-content-center align-items-center">
-                    <i class="fas fa-angle-right fa-2x"></i>
+                <a data-popup-open="popup-3" class="invisible circle-button round d-flex justify-content-center align-items-center">
+                    <i id="iSpyNext" class="fas fa-angle-right fa-2x"></i>
                 </a>
             </div>
         </div>
@@ -535,8 +535,8 @@ function after(username, scaryWord, img) {
     printDiv.append(
         `<div class="yellow">
                 <div class="mx-4 pt-4">
-                <a id="after-back" class="circle-button round d-flex justify-content-center align-items-center">
-                    <i class="fas fa-angle-left fa-2x"></i>
+                <a class="circle-button round d-flex justify-content-center align-items-center">
+                    <i id="after-back" class="fas fa-angle-left fa-2x"></i>
                 </a>
                 <div class="text-center">
                     <div class="m-4 square-border-black rounded background-white">
@@ -990,9 +990,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
         $("#save").addClass("disabled");
         $("#savecircle").addClass("disabled-border");
         $("#uploader").change(() => imgUpload.previewFile(this.files));
-    } else if (event.target.id === "save") {
-
-        console.log("you clicked save");
+    } else if (event.target.id === "savecircle") {
 
         let url = $("#theuploaded").attr('src');
         let currentUser = user.getUserObj();

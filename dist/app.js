@@ -541,13 +541,13 @@ function after(username, scaryWord, img) {
                 <div class="text-center">
                     <div class="m-4 square-border-black rounded background-white">
                         <h1 class="display-3 mt-2">Hi, ${username}!</h1>
-                        <img class="round my-5 center-block after-img" src="img/avatar/Art-Investigator-300.png">
                         <h2 class="display-5">Here's some things you did today!</h2>
-                        <h2>You learned that <i>${scaryWord}</i> is something that you can conquer!</h2>
+                        <img class="round my-5 center-block after-img" src="img/avatar/Art-Investigator-300.png">
+                        <h2 class="pb-2">You learned that <i>${scaryWord}</i> is something that you can conquer!</h2>
                     </div>
                     <br>
-                    <div class="m-4
-                        <h3>Here are some pictures you took:</h3>
+                    <div class="m-4 square-border-black rounded background-white">
+                        <h3 class="py-2">Here are some pictures you took:</h3>
                     </div>    
                     <div id="afterImg" class="mt-5 mx-4 d-flex justify-content-around flex-column">
                     <div>

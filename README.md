@@ -1,5 +1,7 @@
 # art-investigator
 
+<a href="https://mulhollen.github.io/art-investigator/">Check out the Beta State of Art Investigator</a>
+
 Art, especially gallery art and museum art, can be hard to digest and alienating for children. The goal of Art Investigator is to make museum art understandable, relatable, and fun for children at an early reading age (7-11 years old). Working with Nick Cave's <i>Feat.</i> exhibit at The Frist Center for the Visual Arts  in Nashville, Tennessee, Art Investigator is an interactive tour through the exhibit that focuses on learning, emotional intelligence, and creating interaction points for parents and their children. 
 
 <b>Primary Users</b>

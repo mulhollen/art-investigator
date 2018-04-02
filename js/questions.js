@@ -57,7 +57,7 @@ var questionArray =
             id: "q_11"
         },
         {
-            q: "A bit of blanket hiding behind a pair?",
+            q: "A bit of blanket hiding behind a pear?",
             hint: "img/hints/q_08.png",
             id: "q_12"
         },

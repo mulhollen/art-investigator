@@ -106,6 +106,8 @@ document.querySelector('#main').addEventListener('click', (event) => {
     } else if (event.target.id === "scary-word-back") {
         printDiv.empty('');
         printJS.appendMain(html.vulnerablePage);
+    } else if (event.target.id === "scrolldown"){
+        $("html, body").animate({ scrollTop: $('#page-2').offset().top }, 500);
     } else if (event.target.id === "next-scary-word") {
         printDiv.empty('');
         printJS.appendMain(html.armorPage);
@@ -145,6 +147,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
         printDiv.empty('');
         html.imageUpload();
         $("#save").addClass("disabled");
+        $("#savecircle").addClass("disabled-border");
         $("#uploader").change(() => imgUpload.previewFile(this.files));
     } else if (event.target.id === "save") {
 

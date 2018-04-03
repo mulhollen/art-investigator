@@ -269,11 +269,11 @@ function editProfilePage(username, email) {
 let vulnerablePage = `<div class="background-black pb-5">
                         <div class="full-height-100">
                             <div class="mx-4 pt-4 d-flex justify-content-between">
-                                <a id="vulnerable-back" class="circle-button round d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-angle-left fa-2x"></i>
+                                <a class="circle-button round d-flex justify-content-center align-items-center">
+                                    <i id="vulnerable-back" class="fas fa-angle-left fa-2x"></i>
                                 </a>
-                                <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-home fa-lg"></i>
+                                <a class="circle-button round d-flex justify-content-center align-items-center">
+                                    <i id="home" class="fas fa-home fa-lg"></i>
                                 </a>
                             </div>
                             <div class="m-5 p-4 square-border rounded">
@@ -330,11 +330,11 @@ function scaryWordPage(scaryWord) {
         `<div class="full-height-100 background-black">
             <div class="background-black pb-5">
                 <div class="mx-4 pt-4 d-flex justify-content-between">
-                    <a id="scary-word-back" class="circle-button round d-flex justify-content-center align-items-center">
-                        <i class="fas fa-angle-left fa-2x"></i>
+                    <a class="circle-button round d-flex justify-content-center align-items-center">
+                        <i id="scary-word-back" class="fas fa-angle-left fa-2x"></i>
                     </a>
-                    <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
-                        <i class="fas fa-home fa-lg"></i>
+                    <a class="circle-button round d-flex justify-content-center align-items-center">
+                        <i id="home" class="fas fa-home fa-lg"></i>
                     </a>
                 </div>
                 <div class="canvas d-flex justify-content-center">
@@ -384,17 +384,17 @@ function wordCloudPage() {
 
 let armorPage = `<div class="full-height background-black pb-5">
                     <div class="mx-4 pt-4 d-flex justify-content-between">
-                        <a id="armor-back" class="circle-button round d-flex justify-content-center align-items-center">
-                            <i class="fas fa-angle-left fa-2x"></i>
+                        <a class="circle-button round d-flex justify-content-center align-items-center">
+                            <i id="armor-back" class="fas fa-angle-left fa-2x"></i>
                         </a>
-                        <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
-                            <i class="fas fa-home fa-lg"></i>
+                        <a class="circle-button round d-flex justify-content-center align-items-center">
+                            <i id="home" class="fas fa-home fa-lg"></i>
                         </a>
                     </div>
                     <div class="mr-5 mt-5 mb-5 p-3 square-border rounded negative-left">
                         <h2 class="p-3 white-text">Nick’s fear was being treated differently from the people around him because he didn’t look like them, talk like them, or
                         grow up like them - so Nick did something to face his fear.<br><br>To make himself feel better, Nick started making armor but not the kind knights or soldiers wear.</h2> 
-                        <h2 class="p-3 white-text">Nick made his armour with what was around him, things that were discarded, things that made him feel strong.</h2>
+                        <h2 class="p-3 white-text">Nick made his armor with what was around him, things that were discarded, things that made him feel strong.</h2>
                         <h1 class="p-3 display-4 white-text">do you have armor that makes you feel strong?</h1>
                         <div class="mx-3 pb-3 d-flex justify-content-end">
                             <a class="circle-button round d-flex justify-content-center align-items-center">
@@ -406,11 +406,11 @@ let armorPage = `<div class="full-height background-black pb-5">
 
 let ispyInstructionsPage = `<div class="yellow pb-5 full-height">
                                 <div class="mx-4 pt-4 d-flex justify-content-between">
-                                    <a id="ispy-instructions-back" class="invisible circle-button round d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-angle-left fa-2x"></i>
+                                    <a class="invisible circle-button round d-flex justify-content-center align-items-center">
+                                        <i id="ispy-instructions-back" class="fas fa-angle-left fa-2x"></i>
                                     </a>
-                                    <a id="home" class="circle-button round d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-home fa-lg"></i>
+                                    <a class="circle-button round d-flex justify-content-center align-items-center">
+                                        <i id="home" class="fas fa-home fa-lg"></i>
                                     </a>
                                 </div>
                                 <div class="m-5 p-3 square-border-black rounded">
@@ -427,11 +427,11 @@ function ispyMain(color, questionText, qImage, ID) {
     printDiv.append(
         `<div id="iSpyMain" class="${color} pb-5 full-height">
             <div class="mx-4 pt-4 d-flex justify-content-between">
-                <a id="questionBack" class="d-inline-block invisible circle-button round d-flex justify-content-center align-items-center">
-                    <i class="fas fa-angle-left fa-2x"></i>
+                <a class="d-inline-block invisible circle-button round d-flex justify-content-center align-items-center">
+                    <i id="questionBack" class="fas fa-angle-left fa-2x"></i>
                 </a>
-                <a id="home" class="d-inline-block circle-button round d-flex justify-content-center align-items-center">
-                    <i class="fas fa-home fa-lg"></i>
+                <a class="d-inline-block circle-button round d-flex justify-content-center align-items-center">
+                    <i id="home" class="fas fa-home fa-lg"></i>
                 </a>
             </div>
             <div class="m-5 p-3 square-border-black rounded background-white">
@@ -493,11 +493,11 @@ function ispyGallery(color, questionText, ID) {
     printDiv.append(
         `<div class="${color} pb-5 full-height">
             <div class="mx-4 pt-4 d-flex justify-content-between">
-                <a id="questionBack" class="invisible circle-button round d-flex justify-content-center align-items-center">
-                    <i class="fas fa-angle-left fa-2x"></i>
+                <a class="invisible circle-button round d-flex justify-content-center align-items-center">
+                    <i id="questionBack" class="fas fa-angle-left fa-2x"></i>
                 </a>
-                <a id="home" class="d-inline-block circle-button round d-flex justify-content-center align-items-center">
-                    <i class="fas fa-home fa-lg"></i>
+                <a class="d-inline-block circle-button round d-flex justify-content-center align-items-center">
+                    <i id="home" class="fas fa-home fa-lg"></i>
                 </a>
             </div>
             <div class="m-5 p-3 square-border-black rounded background-white">
@@ -1039,6 +1039,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
             console.log("we got here");
             printDiv.empty('');
             game.playLast(questions.questionArray[place]);
+            console.log("num", num);
             $("#userUpload").attr('src', url);
             $("#nextBtn").removeClass("invisible");
             $("#userUpload").removeClass("invisible");
@@ -1046,9 +1047,12 @@ document.querySelector('#main').addEventListener('click', (event) => {
     } else if (event.target.id === "cancelUpload"){
         let place = num;
         game.playLast(questions.questionArray[place]);
+
     } else if (event.target.id === "iSpyNext") {
         if (num === 15) {
             $(function () {
+                console.log("did we make it into the function?");
+                console.log("this", $(this));
                 //----- OPEN
                 $('[data-popup-open]').on('click', function (e) {
                     var targeted_popup_class = $(this).attr('data-popup-open');

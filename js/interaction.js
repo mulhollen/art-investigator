@@ -198,6 +198,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
             console.log("we got here");
             printDiv.empty('');
             game.playLast(questions.questionArray[place]);
+            console.log("num", num);
             $("#userUpload").attr('src', url);
             $("#nextBtn").removeClass("invisible");
             $("#userUpload").removeClass("invisible");
@@ -205,9 +206,12 @@ document.querySelector('#main').addEventListener('click', (event) => {
     } else if (event.target.id === "cancelUpload"){
         let place = num;
         game.playLast(questions.questionArray[place]);
+
     } else if (event.target.id === "iSpyNext") {
         if (num === 15) {
             $(function () {
+                console.log("did we make it into the function?");
+                console.log("this", $(this));
                 //----- OPEN
                 $('[data-popup-open]').on('click', function (e) {
                     var targeted_popup_class = $(this).attr('data-popup-open');

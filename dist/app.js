@@ -508,7 +508,7 @@ function ispyGallery(color, questionText, ID) {
             <div class="d-flex justify-content-around mt-4 phone-col">
                 <img id="userUpload" class="invisible q-img square-border-black" src="${userUpload}">
             </div>
-            <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end flex-wrap">
+            <div  id="nextBtn" class="invisible mx-3 mb-3 fixed-bottom d-flex justify-content-end flex-wrap">
                 <a data-popup-open="popup-3" class="invisible circle-button round d-flex justify-content-center align-items-center">
                     <i id="iSpyNext" class="fas fa-angle-right fa-2x"></i>
                 </a>

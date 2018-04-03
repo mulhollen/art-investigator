@@ -445,8 +445,8 @@ function ispyMain(color, questionText, qImage, ID) {
                 <img id="hintImg" class="invisible q-img square-border-black" src="${qImage}">
                 <img id="userUpload" class="invisible q-img square-border-black" src="${userUpload}">
             </div>
-            <div class="mx-3 mb-3 fixed-bottom d-flex justify-content-end">
-                <a data-popup-open="popup-3" class="invisible circle-button round d-flex justify-content-center align-items-center">
+            <div id="nextBtn" class="invisible mx-3 mb-3 fixed-bottom d-flex justify-content-end">
+                <a data-popup-open="popup-3" class="circle-button round d-flex justify-content-center align-items-center">
                     <i id="iSpyNext" class="fas fa-angle-right fa-2x"></i>
                 </a>
             </div>
@@ -990,7 +990,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
         $("#save").addClass("disabled");
         $("#savecircle").addClass("disabled-border");
         $("#uploader").change(() => imgUpload.previewFile(this.files));
-    } else if (event.target.id === "savecircle") {
+    } else if (event.target.id === "save") {
 
         let url = $("#theuploaded").attr('src');
         let currentUser = user.getUserObj();
@@ -1040,7 +1040,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
             printDiv.empty('');
             game.playLast(questions.questionArray[place]);
             $("#userUpload").attr('src', url);
-            $("#iSpyNext").removeClass("invisible");
+            $("#nextBtn").removeClass("invisible");
             $("#userUpload").removeClass("invisible");
         });
     } else if (event.target.id === "cancelUpload"){
@@ -1063,7 +1063,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
                 });
             });
         } else {
-            $("#iSpyNext").addClass("invisible");
+            $("#nextBtn").addClass("invisible");
             game.playISpy(questions.questionArray);
         }
     } else if (event.target.id === "after") {

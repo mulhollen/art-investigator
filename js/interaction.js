@@ -149,7 +149,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
         $("#save").addClass("disabled");
         $("#savecircle").addClass("disabled-border");
         $("#uploader").change(() => imgUpload.previewFile(this.files));
-    } else if (event.target.id === "savecircle") {
+    } else if (event.target.id === "save") {
 
         let url = $("#theuploaded").attr('src');
         let currentUser = user.getUserObj();
@@ -199,7 +199,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
             printDiv.empty('');
             game.playLast(questions.questionArray[place]);
             $("#userUpload").attr('src', url);
-            $("#iSpyNext").removeClass("invisible");
+            $("#nextBtn").removeClass("invisible");
             $("#userUpload").removeClass("invisible");
         });
     } else if (event.target.id === "cancelUpload"){
@@ -222,7 +222,7 @@ document.querySelector('#main').addEventListener('click', (event) => {
                 });
             });
         } else {
-            $("#iSpyNext").addClass("invisible");
+            $("#nextBtn").addClass("invisible");
             game.playISpy(questions.questionArray);
         }
     } else if (event.target.id === "after") {

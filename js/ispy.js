@@ -12,7 +12,7 @@ let counter = 0;
 function playISpy(array){
 
     if (counter <= 15) {
-        console.log("counter hint", array[counter].hint);
+        // console.log("counter hint", array[counter].hint);
         if (array[counter].hint === undefined){
             let color = randColor(colorList);
             let question = array[counter].q;

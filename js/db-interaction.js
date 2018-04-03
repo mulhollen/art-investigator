@@ -92,7 +92,6 @@ function uploadStorageBucket(file) {
 
     task.then((snapshot) => {
         const url = snapshot.downloadURL;
-        console.log(url);
         document.querySelector('#theuploaded').src = url;
         $("#save").removeClass("disabled");
         $("#savecircle").removeClass("disabled-border");

@@ -93,7 +93,6 @@ function uploadStorageBucket(file) {
 
     task.then((snapshot) => {
         const url = snapshot.downloadURL;
-        console.log(url);
         document.querySelector('#theuploaded').src = url;
         $("#save").removeClass("disabled");
         $("#savecircle").removeClass("disabled-border");
@@ -833,7 +832,6 @@ function previewFile(fileUpload) {
         preview.src = "";
     }
 
-    console.log("making it to uploadStorageBucket");
     db.uploadStorageBucket(file);
 }
 
@@ -1036,10 +1034,8 @@ document.querySelector('#main').addEventListener('click', (event) => {
         // console.log("FB upload key", currentUser.fbID);
 
         db.addFBkey(photoObj, currentUser.fbID).then(() => {
-            console.log("we got here");
             printDiv.empty('');
             game.playLast(questions.questionArray[place]);
-            console.log("num", num);
             $("#userUpload").attr('src', url);
             $("#nextBtn").removeClass("invisible");
             $("#userUpload").removeClass("invisible");
@@ -1051,8 +1047,6 @@ document.querySelector('#main').addEventListener('click', (event) => {
     } else if (event.target.id === "iSpyNext") {
         if (num === 15) {
             $(function () {
-                console.log("did we make it into the function?");
-                console.log("this", $(this));
                 //----- OPEN
                 $('[data-popup-open]').on('click', function (e) {
                     var targeted_popup_class = $(this).attr('data-popup-open');
@@ -1104,7 +1098,7 @@ let counter = 0;
 function playISpy(array){
 
     if (counter <= 15) {
-        console.log("counter hint", array[counter].hint);
+        // console.log("counter hint", array[counter].hint);
         if (array[counter].hint === undefined){
             let color = randColor(colorList);
             let question = array[counter].q;

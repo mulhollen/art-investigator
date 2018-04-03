@@ -19,7 +19,6 @@ function previewFile(fileUpload) {
         preview.src = "";
     }
 
-    console.log("making it to uploadStorageBucket");
     db.uploadStorageBucket(file);
 }
 
